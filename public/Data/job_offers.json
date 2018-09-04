@@ -1,0 +1,21 @@
+{
+  "id": 1,
+  "title": "string",
+  "description": "string",
+  "categoryId": 2,
+  "createdAt": "dd-mm-year",
+  "expirationDate": "dd-mm-year",
+  "locationId": 3,
+  "salary": {
+    "max": 5000,
+    "min": 1000
+  },
+  "company":{
+    "name": "string",
+    "img": "string",
+    "location": [{
+      "id": 1,
+      "name": "string"
+    }]
+  }
+}
