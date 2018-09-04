@@ -1,4 +1,104 @@
 {
-  "name": "string",
-  "id": 1
+  "Categories": [
+    {
+      "name": "Administracja",
+      "id": 0
+    },
+    {
+      "name": "Doradztwo/Konsulting",
+      "id": 1
+    },
+    {
+      "name": "Bankowość",
+      "id": 2
+    },
+    {
+      "name": "BHP",
+      "id": 3
+    },
+    {
+      "name": "Budownictwo",
+      "id": 4
+    },
+    {
+      "name": "Call Center",
+      "id": 5
+    },
+    {
+      "name": "Edukacja/Szkolenia",
+      "id": 6
+    },
+    {
+      "name": "Finanse/Ekonomia",
+      "id": 7
+    },
+    {
+      "name": "Franczyza/Własny bines",
+      "id": 8
+    },
+    {
+      "name": "Hotelarstwo/Turystyka/Gastronomia",
+      "id": 9
+    },
+    {
+      "name": "HR/Zasoby ludzkie",
+      "id": 10
+    },
+    {
+      "name": "Inżynieria",
+      "id": 11
+    },
+    {
+      "name": "IT",
+      "id": 12
+    },
+    {
+      "name": "Marketing",
+      "id": 13
+    },
+    {
+      "name": "Nieruchomości",
+      "id": 14
+    },
+    {
+      "name": "Obsługa klienta",
+      "id": 15
+    },
+    {
+      "name": "Praca fizyczna",
+      "id": 16
+    },
+    {
+      "name": "Prawo",
+      "id": 17
+    },
+    {
+      "name": "Produkcja",
+      "id": 18
+    },
+    {
+      "name": "Reklama/Grafika/Fotografia",
+      "id": 19
+    },
+    {
+      "name": "Sketor publiczny",
+      "id": 20
+    },
+    {
+      "name": "Sprzedaż",
+      "id": 21
+    },
+    {
+      "name": "Transport/Spedycja",
+      "id": 22
+    },
+    {
+      "name": "Ubezpieczenia",
+      "id": 23
+    },
+    {
+      "name": "Inne",
+      "id": 24
+    }
+  ]
 }
