@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Navigation, { Navigationx } from './Navigation';
+import Navigation from './Navigation';
+
+import {Bar, Foo} from './features';
 
 class App extends Component {
   render() {
