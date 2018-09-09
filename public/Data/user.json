@@ -1,18 +1,7 @@
 {
-  "Users": [
-    {
-      "id": 0,
-      "name": "TestUser",
-      "employer": false,
-      "email": "test@test.com",
-      "favs": []
-    },
-    {
-      "id": 1,
-      "name": "TestUser2",
-      "employer": true,
-      "email": "test.boss@test.com",
-      "favs": []
-    }
-  ]
+  "id": 1,
+  "name": "TestUser",
+  "employer": false,
+  "email": "test@test.com",
+  "favs": []
 }

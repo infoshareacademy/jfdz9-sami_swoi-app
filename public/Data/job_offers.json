@@ -7,7 +7,7 @@
       "categoryId": 12,
       "createdAt": "04-09-2019",
       "expirationDate": "04-11-2019",
-      "locationId": 1,
+      "locationId": 1 ,
       "salary": {
         "max": 3200,
         "min": 2500
