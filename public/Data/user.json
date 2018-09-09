@@ -1,7 +1,7 @@
 {
   "id": 1,
-  "name": "string",
+  "name": "TestUser",
   "employer": false,
-  "email": "string",
-  "favs": [1,5,8]
+  "email": "test@test.com",
+  "favs": []
 }

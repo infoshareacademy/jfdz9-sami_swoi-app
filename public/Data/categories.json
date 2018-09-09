@@ -1,4 +1,102 @@
-{
-  "name": "string",
-  "id": 1
-}
+[
+  {
+    "name": "Administracja",
+    "id": 1
+  },
+  {
+    "name": "Doradztwo/Konsulting",
+    "id": 2
+  },
+  {
+    "name": "Bankowość",
+    "id": 3
+  },
+  {
+    "name": "BHP",
+    "id": 4
+  },
+  {
+    "name": "Budownictwo",
+    "id": 5
+  },
+  {
+    "name": "Call Center",
+    "id": 6
+  },
+  {
+    "name": "Edukacja/Szkolenia",
+    "id": 7
+  },
+  {
+    "name": "Finanse/Ekonomia",
+    "id": 8
+  },
+  {
+    "name": "Franczyza/Własny bines",
+    "id": 9
+  },
+  {
+    "name": "Hotelarstwo/Turystyka/Gastronomia",
+    "id": 10
+  },
+  {
+    "name": "HR/Zasoby ludzkie",
+    "id": 11
+  },
+  {
+    "name": "Inżynieria",
+    "id": 12
+  },
+  {
+    "name": "IT",
+    "id": 13
+  },
+  {
+    "name": "Marketing",
+    "id": 14
+  },
+  {
+    "name": "Nieruchomości",
+    "id": 15
+  },
+  {
+    "name": "Obsługa klienta",
+    "id": 16
+  },
+  {
+    "name": "Praca fizyczna",
+    "id": 17
+  },
+  {
+    "name": "Prawo",
+    "id": 18
+  },
+  {
+    "name": "Produkcja",
+    "id": 19
+  },
+  {
+    "name": "Reklama/Grafika/Fotografia",
+    "id": 20
+  },
+  {
+    "name": "Sektor publiczny",
+    "id": 21
+  },
+  {
+    "name": "Sprzedaż",
+    "id": 22
+  },
+  {
+    "name": "Transport/Spedycja",
+    "id": 23
+  },
+  {
+    "name": "Ubezpieczenia",
+    "id": 24
+  },
+  {
+    "name": "Inne",
+    "id": 25
+  }
+]

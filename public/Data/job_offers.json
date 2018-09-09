@@ -1,21 +1,96 @@
 {
-  "id": 1,
-  "title": "string",
-  "description": "string",
-  "categoryId": 2,
-  "createdAt": "dd-mm-year",
-  "expirationDate": "dd-mm-year",
-  "locationId": 3,
-  "salary": {
-    "max": 5000,
-    "min": 1000
-  },
-  "company":{
-    "name": "string",
-    "img": "string",
-    "location": [{
+  "JobOffers": [
+    {
+      "id": 0,
+      "title": "Junior Front-End Developer",
+      "description": "Tu jest opis stanowiska pracy.",
+      "categoryId": 12,
+      "createdAt": "04-09-2019",
+      "expirationDate": "04-11-2019",
+      "locationId": 1 ,
+      "salary": {
+        "max": 3200,
+        "min": 2500
+      },
+      "company": {
+        "name": "InfoShare Academy",
+        "img": "logo.png",
+        "locations": [
+          {
+            "id": 1,
+            "name": "Gdańsk"
+          }
+        ]
+      }
+    },
+    {
       "id": 1,
-      "name": "string"
-    }]
-  }
+      "title": "Kopacz rowów",
+      "description": "Tu jest opis stanowiska pracy.",
+      "categoryId": 4,
+      "createdAt": "01-09-2019",
+      "expirationDate": "01-12-2019",
+      "locationId": 3,
+      "salary": {
+        "max": 2300,
+        "min": 1800
+      },
+      "company": {
+        "name": "Buduj&Montuj",
+        "img": "logo2.png",
+        "locations": [
+          {
+            "id": 3,
+            "name": "Wejherowo"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "title": "Fryzjer intymny",
+      "description": "Tu jest opis stanowiska pracy.",
+      "categoryId": 15,
+      "createdAt": "25-08-2019",
+      "expirationDate": "25-01-2020",
+      "locationId": 2,
+      "salary": {
+        "max": 2500,
+        "min": 2000
+      },
+      "company": {
+        "name": "Zakład Fryzjerski Łyso",
+        "img": "logo2.png",
+        "locations": [
+          {
+            "id": 2,
+            "name": "Gdynia"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "title": "Sprzedawca w salonie Play",
+      "description": "Tu jest opis stanowiska pracy.",
+      "categoryId": 21,
+      "createdAt": "20-08-2019",
+      "expirationDate": "20-10-2019",
+      "locationId": 1,
+      "salary": {
+        "max": 2800,
+        "min": 2500
+      },
+      "company": {
+        "name": "P4 Sp. z o.o.",
+        "img": "logo3.png",
+        "locations": [
+          {
+            "id": 1,
+            "name": "Gdańsk"
+          }
+        ]
+      }
+    }
+  ]
 }
