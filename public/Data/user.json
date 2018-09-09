@@ -3,5 +3,5 @@
   "name": "TestUser",
   "employer": false,
   "email": "test@test.com",
-  "favs": []
+  "favs": [1]
 }
