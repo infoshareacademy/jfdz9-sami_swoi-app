@@ -9,7 +9,7 @@ import {
 import Home from './components/Home';
 import DashBoard from './components/DashBoard/DashBoard'
 import Footer from './components/Footer/Footer'
-// import JobsOffersList from './JobsOffersList'
+// import JobsOffersList from './components/JobsOffersList/JobsOffersList'
 // import LogIn from './LogIn'
 import Navigation from './components/Navigation/Navigation'
 // import Register from './Register'
