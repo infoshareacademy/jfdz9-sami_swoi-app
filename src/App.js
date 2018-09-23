@@ -14,7 +14,7 @@ import Footer from './components/Footer/Footer'
 import Navigation from './components/Navigation/Navigation'
 // import Register from './Register'
 // import SearchForm from './SearchForm'
-// import SideBar from './SideBar'
+import SideBar from './components/SideBar/SideBar'
 // import UserPanel from './UserPanel'
 
 
@@ -27,6 +27,7 @@ class App extends Component {
           <Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/dashboard" component={DashBoard}/>
+              <Route path="/sidebar" component={SideBar}/>
               <Route path="/footer" component={Footer}/>
           </Switch>
         </div>
