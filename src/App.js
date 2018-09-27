@@ -11,7 +11,7 @@ import Home from './components/Home';
 import DashBoard from './components/DashBoard/DashBoard'
 import Footer from './components/Footer/Footer'
 // import JobsOffersList from './components/JobsOffersList/JobsOffersList'
-// import LogIn from './LogIn'
+import LogIn from './components/LogIn/LogIn'
 import Navigation from './components/Navigation/Navigation'
 // import Register from './Register'
 // import SearchForm from './SearchForm'
@@ -30,6 +30,7 @@ class App extends Component {
               <Route path="/dashboard" component={DashBoard}/>
               <Route path="/sidebar" component={SideBar}/>
               <Route path="/footer" component={Footer}/>
+              <Route path="/login" component={LogIn}/>
           </Switch>
         </div>
       </Router>
