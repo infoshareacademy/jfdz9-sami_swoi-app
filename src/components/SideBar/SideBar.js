@@ -13,11 +13,13 @@ class Sidebar extends Component{
                // });
                // console.log(formattedOffers)
 
-               job_offers.sort((offer, nextOffer) => {
-                   if (moment(offer.createdAt).isAfter(nextOffer.createdAt)) {
+               job_offers.sort((offer1, offer2) => {
+                   const momentCond1 = moment(offer1.createdAt);
+                   const momentCond2 = moment(offer2.createdAt);
+                   if (momentCond1.isAfter(momentCond2)) {
                        return 1;
                    }
-                   if (moment(offer.createdAt).isBefore(nextOffer.createdAt)) {
+                   if (momentCond1.isBefore(momentCond2)) {
                        return -1;
                    }
                    return 0;
