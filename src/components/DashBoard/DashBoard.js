@@ -29,6 +29,20 @@ import {CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from "recharts";
 
 
             const blablabla = ([job_offers, categories]) => {
+            //     const jobOffersByCategoryId = job_offers.map(({categoryId}) => categoryId).reduce(
+            //         (result, nextCategoryId) => {
+            //             result[nextCategoryId] = (result[nextCategoryId] || 0) + 1;
+            //             return result
+            //         }, {}
+            //     );
+            //
+            //     const report = categories.map(category => ({
+            //         points: jobOffersByCategoryId[category.id],
+            //         label: category.name
+            //     }));
+            //     console.log(report)
+            // };
+
                 const jobOffersCategoriesID = job_offers.map(el => el.categoryId);
                 const jobOffersCategoriesIdNames = {};
                 jobOffersCategoriesID.forEach(categoryId => {
