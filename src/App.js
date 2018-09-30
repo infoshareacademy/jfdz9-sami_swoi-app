@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Dashboard } from "./DashBoard";
 
 import {
     BrowserRouter as Router,
