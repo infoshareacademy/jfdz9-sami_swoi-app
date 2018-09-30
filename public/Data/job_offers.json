@@ -94,5 +94,32 @@
         }
       ]
     }
+  },
+  {
+    "id": 5,
+    "title": "Full-Stack Developer",
+    "description": "Tu jest opis stanowiska pracy.",
+    "categoryId": 13,
+    "createdAt": "20-09-2019",
+    "expirationDate": "20-12-2019",
+    "locationId": 1,
+    "salary": {
+      "max": 3800,
+      "min": 3000
+    },
+    "company": {
+      "name": "InfoShare Academy",
+      "img": "logo.png",
+      "locations": [
+        {
+          "id": 1,
+          "name": "Gdańsk"
+        },
+        {
+          "id": 2,
+          "name": "Gdynia"
+        }
+      ]
+    }
   }
 ]
