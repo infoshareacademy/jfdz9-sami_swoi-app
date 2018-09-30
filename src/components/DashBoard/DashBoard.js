@@ -28,7 +28,7 @@ import {CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from "recharts";
 
 
 
-            const blablabla = ([job_offers, categories]) => {
+            const makeJobCategoriesData = ([job_offers, categories]) => {
             //     const jobOffersByCategoryId = job_offers.map(({categoryId}) => categoryId).reduce(
             //         (result, nextCategoryId) => {
             //             result[nextCategoryId] = (result[nextCategoryId] || 0) + 1;
@@ -58,7 +58,7 @@ import {CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from "recharts";
                 console.log(jobOffersCategoriesIdNames);
             };
 
-            Promise.all([p1, p2]).then(blablabla)
+            Promise.all([p1, p2]).then(makeJobCategoriesData)
         }
 
         render() {
