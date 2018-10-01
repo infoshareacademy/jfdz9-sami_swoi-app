@@ -121,5 +121,51 @@
         }
       ]
     }
+  },
+  {
+    "id": 6,
+    "title": "Prezydent Gdyni",
+    "description": "Tu jest opis stanowiska pracy.",
+    "categoryId": 21,
+    "createdAt": "23-09-2019",
+    "expirationDate": "23-12-2019",
+    "locationId": 1,
+    "salary": {
+      "max": 8300,
+      "min": 7500
+    },
+    "company": {
+      "name": "Rada Miasta Gdynia",
+      "img": "logo.png",
+      "locations": [
+        {
+          "id": 2,
+          "name": "Gdynia"
+        }
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "title": "Ekskluzywna prostytutka",
+    "description": "Tu jest opis stanowiska pracy.",
+    "categoryId": 25,
+    "createdAt": "15-09-2019",
+    "expirationDate": "15-12-2019",
+    "locationId": 1,
+    "salary": {
+      "max": 15000,
+      "min": 12000
+    },
+    "company": {
+      "name": "Dom Publiczny Eden",
+      "img": "logo.png",
+      "locations": [
+        {
+          "id": 3,
+          "name": "Wejherowo"
+        }
+      ]
+    }
   }
 ]
