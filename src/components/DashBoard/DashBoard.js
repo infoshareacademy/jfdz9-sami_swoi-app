@@ -1,34 +1,37 @@
-import React, { Component } from 'react';
-import {CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from "recharts";
+import React, {Component, Fragment} from 'react';
+import {Bar, BarChart, CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from "recharts";
 
 
-    class DashBoard extends Component {
+class DashBoard extends Component {
 
-        data = [
-            {name: 'Styczeń', KONKURENCJA: 10, MY: 15},
-            {name: 'Luty', KONKURENCJA: 13, MY: 23},
-            {name: 'Marzec', KONKURENCJA: 17, MY: 28},
-            {name: 'Kwiecień', KONKURENCJA: 22, MY: 35},
-            {name: 'Maj', KONKURENCJA: 29, MY: 42},
-            {name: 'Czerwiec', KONKURENCJA: 35, MY: 50},
-            {name: 'Lipiec', KONKURENCJA: 41, MY: 61},
-            {name: 'Sierpień', KONKURENCJA: 49, MY: 72},
-            {name: 'Wrzesień', KONKURENCJA: 52, MY: 80},
-            {name: 'Październik', KONKURENCJA: 60, MY: 89},
-            {name: 'Listopad', KONKURENCJA: 63, MY: 91},
-            {name: 'Grudzień', KONKURENCJA: 68, MY: 99},
-        ];
+    state = {
+        data2: [],
+    };
 
-        componentDidMount() {
-            const p1 = fetch('/Data/job_offers.json')
-                .then(response => response.json());
+    data = [
+        {name: 'Styczeń', KONKURENCJA: 10, MY: 15},
+        {name: 'Luty', KONKURENCJA: 13, MY: 23},
+        {name: 'Marzec', KONKURENCJA: 17, MY: 28},
+        {name: 'Kwiecień', KONKURENCJA: 22, MY: 35},
+        {name: 'Maj', KONKURENCJA: 29, MY: 42},
+        {name: 'Czerwiec', KONKURENCJA: 35, MY: 50},
+        {name: 'Lipiec', KONKURENCJA: 41, MY: 61},
+        {name: 'Sierpień', KONKURENCJA: 49, MY: 72},
+        {name: 'Wrzesień', KONKURENCJA: 52, MY: 80},
+        {name: 'Październik', KONKURENCJA: 60, MY: 89},
+        {name: 'Listopad', KONKURENCJA: 63, MY: 91},
+        {name: 'Grudzień', KONKURENCJA: 68, MY: 99},
+    ];
 
-            const p2 = fetch('/Data/categories.json')
-                .then(response => response.json());
+    componentDidMount() {
+        const pJobOffers = fetch('/Data/job_offers.json')
+            .then(response => response.json());
+
+        const pCategories = fetch('/Data/categories.json')
+            .then(response => response.json());
 
 
-
-            const makeJobCategoriesData = ([job_offers, categories]) => {
+        const makeJobCategoriesData = ([job_offers, categories]) => {
             //     const jobOffersByCategoryId = job_offers.map(({categoryId}) => categoryId).reduce(
             //         (result, nextCategoryId) => {
             //             result[nextCategoryId] = (result[nextCategoryId] || 0) + 1;
@@ -43,26 +46,33 @@ import {CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from "recharts";
             //     console.log(report)
             // };
 
-                const jobOffersCategoriesID = job_offers.map(el => el.categoryId);
-                const jobOffersCategoriesIdNames = {};
-                jobOffersCategoriesID.forEach(categoryId => {
-                    if(jobOffersCategoriesIdNames[categoryId]) {
-                        jobOffersCategoriesIdNames[categoryId].points += 1
-                    } else {
-                        jobOffersCategoriesIdNames[categoryId] = {
-                            points: 1,
-                            label: categories.find(category => category.id === categoryId).name
-                        }
+            const jobOffersCategoriesID = job_offers.map(el => el.categoryId);
+            const jobOffersCategoriesIdNames = {};
+            jobOffersCategoriesID.forEach(categoryId => {
+                if (jobOffersCategoriesIdNames[categoryId]) {
+                    jobOffersCategoriesIdNames[categoryId].points += 1
+                } else {
+                    jobOffersCategoriesIdNames[categoryId] = {
+                        points: 1,
+                        label: categories.find(category => category.id === categoryId).name
                     }
-                });
-                console.log(jobOffersCategoriesIdNames);
+                }
+            });
+            console.log(jobOffersCategoriesIdNames);
+            console.log(Object.values(jobOffersCategoriesIdNames));
+            const saveData2 = () => {
+                this.setState({data2: Object.values(jobOffersCategoriesIdNames)})
             };
+            saveData2();
+            console.log(this.state.data2)
+        };
 
-            Promise.all([p1, p2]).then(makeJobCategoriesData)
-        }
+        Promise.all([pJobOffers, pCategories]).then(makeJobCategoriesData)
+    }
 
-        render() {
-            return (
+    render() {
+        return (
+            <Fragment>
                 <LineChart width={500} height={300} data={this.data} margin={{top: 5, right: 20, bottom: 5, left: 0}}>
                     <XAxis dataKey="name"/>
                     <YAxis/>
@@ -71,9 +81,18 @@ import {CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from "recharts";
                     <Line type="monotone" dataKey="MY" stroke="#82ca9d"/>
                     <Line type="monotone" dataKey="KONKURENCJA" stroke="#8884d8"/>
                 </LineChart>
-            )
-        }
 
-    };
+                <BarChart width={600} height={300} data={this.state.data2}>
+                    <XAxis dataKey="label" stroke="#8884d8"/>
+                    <YAxis/>
+                    <Tooltip/>
+                    <CartesianGrid stroke="#ccc" strokeDasharray="5 5"/>
+                    <Bar type="monotone" dataKey="points" fill="#8884d8" barSize={30}/>
+                </BarChart>
+            </Fragment>
+        )
+    }
+
+}
 
 export default DashBoard;
