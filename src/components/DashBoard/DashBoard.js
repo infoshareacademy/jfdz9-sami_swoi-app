@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
-import {Bar, BarChart, CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from "recharts";
+import {Bar, BarChart, CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
+import Typography from '@material-ui/core/Typography';
 
 
 class DashBoard extends Component {
@@ -73,6 +74,9 @@ class DashBoard extends Component {
     render() {
         return (
             <Fragment>
+                <Typography variant="title" color="inherit">
+                    NASZA POZYCJA WZGLĘDEM KONKURENCJI W ILOŚCI OFERT W 2017
+                </Typography>
                 <LineChart width={500} height={300} data={this.data} margin={{top: 5, right: 20, bottom: 5, left: 0}}>
                     <XAxis dataKey="name"/>
                     <YAxis/>
@@ -82,6 +86,9 @@ class DashBoard extends Component {
                     <Line type="monotone" dataKey="KONKURENCJA" stroke="#8884d8"/>
                 </LineChart>
 
+                <Typography variant="title" color="inherit">
+                    POSIADANA LICZBA OFERT WEDLE KATEGORII
+                </Typography>
                 <BarChart width={600} height={300} data={this.state.data2}>
                     <XAxis dataKey="label" stroke="#8884d8"/>
                     <YAxis/>
