@@ -7,6 +7,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
 
 const styles = {
@@ -31,10 +32,15 @@ function ButtonAppBar(props) {
                     <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="title" color="inherit" className={classes.grow}>
-                        News
+                    <Typography variant="title" color="secondary" className={classes.grow}>
+                        <NavLink to="/">HARUJEMY.PL</NavLink>
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Button color="inherit">
+                        <NavLink to="/dashboard">DASHBOARD</NavLink>
+                    </Button>
+                    <Button color="inherit">
+                        <NavLink to="/login">LOGIN</NavLink>
+                    </Button>
                 </Toolbar>
             </AppBar>
         </div>
@@ -47,16 +53,16 @@ ButtonAppBar.propTypes = {
 
 
 
-const Navigation = () => {
-    return(
-        <div>
-            <NavLink to="/">HOME</NavLink>
-            <NavLink to="/dashboard">DASHBOARD</NavLink>
-            <NavLink to="/footer">FOOTER</NavLink>
-            <NavLink to="/sidebar">_SIDEBAR_</NavLink>
-            <NavLink to="/login">____LOGIN</NavLink>
-        </div>
-    )
-};
+// const Navigation = () => {
+//     return(
+//         <div>
+//             <NavLink to="/">HOME</NavLink>
+//             <NavLink to="/dashboard">DASHBOARD</NavLink>
+//             <NavLink to="/footer">FOOTER</NavLink>
+//             <NavLink to="/sidebar">_SIDEBAR_</NavLink>
+//
+//         </div>
+//     )
+// };
 
-export default Navigation;
+export default withStyles(styles)(ButtonAppBar);
