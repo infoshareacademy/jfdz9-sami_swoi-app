@@ -1,5 +1,7 @@
-import React, {Component, Fragment} from 'react';
-import {Bar, BarChart, CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from "recharts";
+import React, {Component} from 'react';
+import {Bar, BarChart, CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid'
 
 
 class DashBoard extends Component {
@@ -72,8 +74,22 @@ class DashBoard extends Component {
 
     render() {
         return (
-            <Fragment>
-                <LineChart width={500} height={300} data={this.data} margin={{top: 5, right: 20, bottom: 5, left: 0}}>
+            <Grid
+                container
+                direction="column"
+                justify="space-around"
+                alignItems="center"
+            >
+                <Typography variant="title" color="inherit" style={{margin: 10}}>
+                    NASZA POZYCJA WZGLĘDEM KONKURENCJI W ILOŚCI OFERT W 2017
+                </Typography>
+                <Typography variant="subheading" color="inherit" style={{width: 700, margin: 10, textAlign: 'center'}}>
+                    Z dumą pokazujemy jak wyglądała nasza pozycja w porównaniu do popularnej konkurencji w ubiegłym
+                    roku. Jak widać na przestrzeni czasu nasza aplikacja zyskuje na popularności i posiadamy coraz
+                    więcej ofert!
+                </Typography>
+                <LineChart width={500} height={300} data={this.data}
+                           margin={{top: 5, right: 20, bottom: 5, left: 0}}>
                     <XAxis dataKey="name"/>
                     <YAxis/>
                     <Tooltip/>
@@ -82,6 +98,12 @@ class DashBoard extends Component {
                     <Line type="monotone" dataKey="KONKURENCJA" stroke="#8884d8"/>
                 </LineChart>
 
+                <Typography variant="title" color="inherit" style={{margin: 10}}>
+                    POSIADANA LICZBA OFERT WEDLE KATEGORII
+                </Typography>
+                <Typography variant="subheading" color="inherit" style={{width: 700, margin: 10, textAlign: 'center'}}>
+                    Wszystkim niezdedycowanym przedstawiamy zestawienie wszystkich ofert pracy w zależności od kategorii branży.
+                </Typography>
                 <BarChart width={600} height={300} data={this.state.data2}>
                     <XAxis dataKey="label" stroke="#8884d8"/>
                     <YAxis/>
@@ -89,7 +111,8 @@ class DashBoard extends Component {
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5"/>
                     <Bar type="monotone" dataKey="points" fill="#8884d8" barSize={30}/>
                 </BarChart>
-            </Fragment>
+
+            </Grid>
         )
     }
 
