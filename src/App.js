@@ -12,9 +12,10 @@ import Footer from './components/Footer/Footer'
 // import JobsOffersList from './components/JobsOffersList/JobsOffersList'
 import LogIn from './components/LogIn/LogIn'
 import Navigation from './components/Navigation/Navigation'
-// import Register from './Register'
+import Register from './components/AddOffert/AddOffert'
 // import SearchForm from './SearchForm'
 import SideBar from './components/SideBar/SideBar'
+import AddOffertButton from "./components/AddOffert/AddOffertButton";
 // import UserPanel from './UserPanel'
 
 
@@ -31,9 +32,11 @@ class App extends Component {
                         <Route path="/sidebar" component={SideBar}/>
                         <Route path="/footer" component={Footer}/>
                         <Route path="/login" component={LogIn}/>
+                        <Route path="/register" component={Register}/>
                     </Switch>
                 </div>
             </Router>
+            <AddOffertButton/>
         </Fragment>
 
 
