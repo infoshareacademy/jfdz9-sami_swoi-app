@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
 import {
@@ -14,6 +14,7 @@ import Navigation from './components/Navigation/Navigation'
 import Register from './components/Register/Register'
 // import SearchForm from './SearchForm'
 import SideBar from './components/SideBar/SideBar'
+import Grid from "@material-ui/core/Grid/Grid";
 
 // import UserPanel from './UserPanel'
 
@@ -21,21 +22,23 @@ import SideBar from './components/SideBar/SideBar'
 class App extends Component {
     render() {
         return (
-            <Fragment>
-                <Router>
-                    <div>
+            <Router>
+                <Grid container spacing={24}>
+                    <Grid item xs={12}>
                         <Navigation/>
+                    </Grid>
+                    <Grid item xs={9}>
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route path="/dashboard" component={DashBoard}/>
-                            <Route path="/register" component={Register}/>
                             <Route path="/login" component={LogIn}/>
                         </Switch>
-                    </div>
-                </Router>
-            </Fragment>
-
-
+                    </Grid>
+                    <Grid item xs={3}>
+                        <SideBar/>
+                    </Grid>
+                </Grid>
+            < /Router>
         );
     }
 }
