@@ -28,15 +28,15 @@ class App extends Component {
                     <Grid item xs={12}>
                         <Navigation/>
                     </Grid>
-                    <Grid item xs={3}>
-                        <SideBar/>
-                    </Grid>
                     <Grid item xs={9}>
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route path="/dashboard" component={DashBoard}/>
                             <Route path="/login" component={LogIn}/>
                         </Switch>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <SideBar/>
                     </Grid>
                 </Grid>
             < /Router>

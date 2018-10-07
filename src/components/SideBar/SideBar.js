@@ -55,7 +55,7 @@ class Sidebar extends Component {
                                         </CardContent>
 
                                         <CardMedia
-                                            image="https://www.koty.pl/wp-content/uploads/2017/11/shutterstock_684452296-e1511112417106-864x575.jpg"
+                                           src="https://www.koty.pl/wp-content/uploads/2017/11/shutterstock_684452296-e1511112417106-864x575.jpg"
                                         />
                                     </Card>
                                 )
