@@ -31,6 +31,7 @@ class App extends Component {
               <Route path="/footer" component={Footer}/>
               <Route path="/login" component={LogIn}/>
           </Switch>
+            <SideBar/>
         </div>
       </Router>
     );
