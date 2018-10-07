@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
 
 import {
@@ -21,18 +21,23 @@ import SideBar from './components/SideBar/SideBar'
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div>
-          <Navigation/>
-          <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route path="/dashboard" component={DashBoard}/>
-              <Route path="/sidebar" component={SideBar}/>
-              <Route path="/footer" component={Footer}/>
-              <Route path="/login" component={LogIn}/>
-          </Switch>
-        </div>
-      </Router>
+        <Fragment>
+            <Router>
+                <div>
+                    <Navigation/>
+                    <Switch>
+                        <Route exact path="/" component={Home}/>
+                        <Route path="/dashboard" component={DashBoard}/>
+                        <Route path="/sidebar" component={SideBar}/>
+                        <Route path="/footer" component={Footer}/>
+                        <Route path="/login" component={LogIn}/>
+                    </Switch>
+                </div>
+            </Router>
+        </Fragment>
+
+
+
     );
   }
 }
