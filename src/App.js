@@ -8,11 +8,10 @@ import {
 } from 'react-router-dom';
 import Home from './components/Home';
 import DashBoard from './components/DashBoard/DashBoard'
-import Footer from './components/Footer/Footer'
 // import JobsOffersList from './components/JobsOffersList/JobsOffersList'
 import LogIn from './components/LogIn/LogIn'
 import Navigation from './components/Navigation/Navigation'
-// import Register from './Register'
+import Register from './components/Register/Register'
 // import SearchForm from './SearchForm'
 import SideBar from './components/SideBar/SideBar'
 import Grid from "@material-ui/core/Grid/Grid";
