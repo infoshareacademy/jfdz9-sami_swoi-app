@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
+import AddOffert from "./AddOffertForm";
 
 
 function getModalStyle() {
@@ -27,7 +27,7 @@ const styles = theme => ({
     },
 });
 
-class AddOffertButton extends React.Component {
+class AddOffertCore extends React.Component {
     state = {
         open: false,
     };
@@ -45,7 +45,6 @@ class AddOffertButton extends React.Component {
 
         return (
             <div>
-                <Typography gutterBottom>Click to get the full Modal experience!</Typography>
                 <Button onClick={this.handleOpen}>Open Modal</Button>
                 <Modal
                     aria-labelledby="simple-modal-title"
@@ -57,9 +56,7 @@ class AddOffertButton extends React.Component {
                         <Typography variant="title" id="modal-title">
                             Text in a modal
                         </Typography>
-                        <Typography variant="subheading" id="simple-modal-description">
-                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                        </Typography>
+                        <AddOffert/>
                     </div>
                 </Modal>
             </div>
@@ -68,7 +65,4 @@ class AddOffertButton extends React.Component {
 }
 
 
-const AddOffertButtonWrapped = withStyles(styles)(AddOffertButton);
-
-
-export default AddOffertButtonWrapped
+export default withStyles(styles)(AddOffertCore)

@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 
 const styles = theme => ({
@@ -38,7 +36,7 @@ const currencies = [
 ];
 
 
-class AddOffert extends React.Component {
+class AddOffertForm extends React.Component {
     state = {
         name: 'Cat in the Hat',
         age: '',
@@ -122,8 +120,8 @@ class AddOffert extends React.Component {
     }
 }
 
-AddOffert.propTypes = {
+AddOffertForm.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(AddOffert);
+export default withStyles(styles)(AddOffertForm);
