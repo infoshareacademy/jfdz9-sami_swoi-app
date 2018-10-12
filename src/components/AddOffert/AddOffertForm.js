@@ -1,127 +1,162 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import React, {Component} from "react";
 
-const styles = theme => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-    },
-    dense: {
-        marginTop: 16,
-    },
-    menu: {
-        width: 200,
-    },
-});
+class AddOffertForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            fullname: "",
+            emailaddress: "",
+            password: "",
+            editor: "",
+            message: "",
+            terms: false,
+            test: ""
+        };
 
-const currencies = [
-    {
-        value: 'PLN',
-        label: 'Zł',
-    },
-    {
-        value: 'EUR',
-        label: '€',
-    },
-    {
-        value: 'USD',
-        label: '$',
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-];
 
+    handleChange(event) {
+        const target = event.target;
+        const value = target.type === "checkbox" ? target.checked : target.value;
+        const name = target.name;
 
-class AddOffertForm extends React.Component {
-    state = {
-        name: 'Cat in the Hat',
-        age: '',
-        multiline: 'Controlled',
-    };
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log(this.state);
+    }
 
     render() {
-        const { classes } = this.props;
-
         return (
-            <form className={classes.container} noValidate autoComplete="off">
-                <TextField
-                    required
-                    label="Nazwa"
-                    placeholder="Wpisz nazwę firmy"
-                    className={classes.textField}
-                    margin="normal"
-                    variant="outlined"
-                />
-                <TextField
-                    required
-                    label="Tytuł"
-                    multiline
-                    rowsMax="4"
-                    className={classes.textField}
-                    margin="normal"
-                    placeholder="Podaj tytuł ogłoszenia"
-                    variant="outlined"
-                />
-                <TextField
-                    required
-                    label="Treść"
-                    style={{ margin: 8 }}
-                    placeholder="Wpisz pełną treść ogłoszenia"
-                    fullWidth
-                    multiline
-                    rows="15"
-                    margin="normal"
-                    variant="outlined"
-                    className={classes.textField}
-                />
-                <TextField
-                    id="outlined-email-input"
-                    label="Email"
-                    className={classes.textField}
-                    type="email"
-                    autoComplete="email"
-                    margin="normal"
-                    variant="outlined"
-                />
-                <TextField
-                    label="Number"
-                    type="number"
-                    className={classes.textField}
-                    margin="normal"
-                    variant="outlined"
-                />
-                <TextField
-                    select
-                    label="Native select"
-                    className={classes.textField}
-                    value={this.state.currency}
-                    SelectProps={{
-                        native: true,
-                        MenuProps: {
-                            className: classes.menu,
-                        },
-                    }}
-                    helperText="Please select your currency"
-                    margin="normal"
-                    variant="outlined"
-                >
-                    {currencies.map(option => (
-                        <option key={option.value} value={option.value}>
-                            {option.label}
-                        </option>
-                    ))}
-                </TextField>
+            <form className="form" onSubmit={this.handleSubmit}>
+                <div className="field">
+                    <label className="label">Name</label>
+                    <div className="control">
+                        <input
+                            className="input"
+                            type="text"
+                            name="fullname"
+                            value={this.state.fullname}
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                </div>
+
+                <div className="field">
+                    <label className="label">Email Address</label>
+                    <div className="control">
+                        <input
+                            className="input"
+                            type="email"
+                            name="emailaddress"
+                            value={this.state.emailaddress}
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                </div>
+
+                <div className="field">
+                    <label className="label">Password</label>
+                    <div className="control">
+                        <input
+                            className="input"
+                            type="password"
+                            name="password"
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                </div>
+
+                <div className="field">
+                    <label className="label">Pick your editor</label>
+                    <div className="control">
+                        <div className="select">
+                            <select
+                                value={this.state.editor}
+                                name="editor"
+                                onChange={this.handleChange}
+                            >
+                                <option value="vscode">VsCode</option>
+                                <option value="atom">Atom</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="field">
+                    <label className="label">What do you like about React</label>
+                    <div className="control">
+                    <textarea
+                        className="textarea"
+                        name="message"
+                        value={this.state.message}
+                        onChange={this.handleChange}
+                    />
+                    </div>
+                </div>
+
+                <div className="field">
+                    <div className="control">
+                        <label className="checkbox">
+                            <input
+                                name="terms"
+                                type="checkbox"
+                                checked={this.state.terms}
+                                onChange={this.handleChange}
+                            />
+                            I agree to the{" "}
+                            <a href="https://google.com">terms and conditions</a>
+                        </label>
+                    </div>
+                </div>
+
+                <div className="field">
+                    <div className="control">
+                        <label className="label">
+                            Do you test your React code?
+                        </label>
+                        <label className="radio">
+                            <input
+                                type="radio"
+                                name="test"
+                                onChange={this.handleChange}
+                                value="Yes"
+                                checked={this.state.test === "Yes"}
+                            />
+                            Yes
+                        </label>
+                        <label className="radio">
+                            <input
+                                type="radio"
+                                name="test"
+                                onChange={this.handleChange}
+                                value="No"
+                                checked={this.state.test === "No"}
+                            />
+                            No
+                        </label>
+                    </div>
+                </div>
+
+                <div className="field">
+                    <div className="control">
+                        <input
+                            type="submit"
+                            value="Submit"
+                            className="button is-primary"
+                        />
+                    </div>
+                </div>
             </form>
-        );
+        )
     }
 }
 
-AddOffertForm.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(AddOffertForm);
+export default AddOffertForm;

@@ -1,18 +1,18 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
-import AddOffert from "./AddOffertForm";
+import AddOffertForm from "./AddOffertForm";
 
 
 function getModalStyle() {
-    const top = 10;
+    const top = 40;
     const left = 50;
 
     return {
         top: `${top}%`,
-        left: `calc(${left}% - 232px)`,
+        left: `calc(${left}% )`,
         transform: `translate(-${top}%, -${left}%)`,
     };
 }
@@ -23,7 +23,7 @@ const styles = theme => ({
         width: theme.spacing.unit * 50,
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
-        padding: theme.spacing.unit * 4,
+        padding: theme.spacing.unit * 2,
     },
 });
 
@@ -33,19 +33,19 @@ class AddOffertCore extends React.Component {
     };
 
     handleOpen = () => {
-        this.setState({ open: true });
+        this.setState({open: true});
     };
 
     handleClose = () => {
-        this.setState({ open: false });
+        this.setState({open: false});
     };
 
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
 
         return (
             <div>
-                <Button onClick={this.handleOpen}>Open Modal</Button>
+                <Button onClick={this.handleOpen}>DODAJ OFERTĘ</Button>
                 <Modal
                     aria-labelledby="simple-modal-title"
                     aria-describedby="simple-modal-description"
@@ -54,9 +54,9 @@ class AddOffertCore extends React.Component {
                 >
                     <div style={getModalStyle()} className={classes.paper}>
                         <Typography variant="title" id="modal-title">
-                            Text in a modal
+                            Formularz dodawania oferty pracy
                         </Typography>
-                        <AddOffert/>
+                        <AddOffertForm/>
                     </div>
                 </Modal>
             </div>
