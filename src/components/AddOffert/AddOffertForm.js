@@ -1,12 +1,18 @@
 import React, {Component} from "react";
+import TextField from '@material-ui/core/TextField';
+import Select from "../../../node_modules/@material-ui/core/Select/Select";
+import InputLabel from "../../../node_modules/@material-ui/core/InputLabel/InputLabel";
+import FormControl from "../../../node_modules/@material-ui/core/FormControl/FormControl";
+import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem";
+
 
 class AddOffertForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fullname: "",
-            emailaddress: "",
-            password: "",
+            title: "",
+            description: "",
+            categories: [],
             editor: "",
             message: "",
             terms: false,
@@ -17,7 +23,17 @@ class AddOffertForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    componentDidMount() {
+        fetch('/Data/categories.json')
+            .then(response => response.json())
+            .then(cat =>this.setState({
+                categories: cat
+            }, function(){
+                console.log(this.state.categories)
+            }));
+    }
+
+        handleChange(event) {
         const target = event.target;
         const value = target.type === "checkbox" ? target.checked : target.value;
         const name = target.name;
@@ -35,115 +51,28 @@ class AddOffertForm extends Component {
     render() {
         return (
             <form className="form" onSubmit={this.handleSubmit}>
-                <div className="field">
-                    <label className="label">Name</label>
-                    <div className="control">
-                        <input
-                            className="input"
-                            type="text"
-                            name="fullname"
-                            value={this.state.fullname}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                </div>
+                <TextField
+                    required
+                    label="Tytuł oferty"
+                    margin="normal"
+                    multiline
+                    rowsMax="3"
+                    name="title"
+                    value={this.state.title}
+                    onChange={this.handleChange}
+                />
 
-                <div className="field">
-                    <label className="label">Email Address</label>
-                    <div className="control">
-                        <input
-                            className="input"
-                            type="email"
-                            name="emailaddress"
-                            value={this.state.emailaddress}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                </div>
+                <TextField
+                    required
+                    label="Pełny opis"
+                    margin="normal"
+                    multiline
+                    rows="5"
+                    name="description"
+                    value={this.state.description}
+                    onChange={this.handleChange}
+                />
 
-                <div className="field">
-                    <label className="label">Password</label>
-                    <div className="control">
-                        <input
-                            className="input"
-                            type="password"
-                            name="password"
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                </div>
-
-                <div className="field">
-                    <label className="label">Pick your editor</label>
-                    <div className="control">
-                        <div className="select">
-                            <select
-                                value={this.state.editor}
-                                name="editor"
-                                onChange={this.handleChange}
-                            >
-                                <option value="vscode">VsCode</option>
-                                <option value="atom">Atom</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="field">
-                    <label className="label">What do you like about React</label>
-                    <div className="control">
-                    <textarea
-                        className="textarea"
-                        name="message"
-                        value={this.state.message}
-                        onChange={this.handleChange}
-                    />
-                    </div>
-                </div>
-
-                <div className="field">
-                    <div className="control">
-                        <label className="checkbox">
-                            <input
-                                name="terms"
-                                type="checkbox"
-                                checked={this.state.terms}
-                                onChange={this.handleChange}
-                            />
-                            I agree to the{" "}
-                            <a href="https://google.com">terms and conditions</a>
-                        </label>
-                    </div>
-                </div>
-
-                <div className="field">
-                    <div className="control">
-                        <label className="label">
-                            Do you test your React code?
-                        </label>
-                        <label className="radio">
-                            <input
-                                type="radio"
-                                name="test"
-                                onChange={this.handleChange}
-                                value="Yes"
-                                checked={this.state.test === "Yes"}
-                            />
-                            Yes
-                        </label>
-                        <label className="radio">
-                            <input
-                                type="radio"
-                                name="test"
-                                onChange={this.handleChange}
-                                value="No"
-                                checked={this.state.test === "No"}
-                            />
-                            No
-                        </label>
-                    </div>
-                </div>
 
                 <div className="field">
                     <div className="control">
