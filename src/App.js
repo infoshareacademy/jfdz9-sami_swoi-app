@@ -29,11 +29,13 @@ class App extends Component {
                     </Grid>
                     <Grid item xs={9}>
                         <Switch>
-                            <Route exact path="/" component={Home}/>
                             <Route path="/dashboard" component={DashBoard}/>
                             <Route path="/login" component={LogIn}/>
                             <Route path="/searchform" component={SearchForm}/>
                         </Switch>
+                    </Grid>
+                    <Grid item xs={9}>
+                        <DashBoard/>
                     </Grid>
                     <Grid item xs={3}>
                         <SideBar/>
