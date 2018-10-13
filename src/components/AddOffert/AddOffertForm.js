@@ -1,5 +1,9 @@
 import React, {Component} from "react";
 import TextField from '@material-ui/core/TextField';
+import FormControl from "../../../node_modules/@material-ui/core/FormControl/FormControl";
+import InputLabel from "../../../node_modules/@material-ui/core/InputLabel/InputLabel";
+import Select from "../../../node_modules/@material-ui/core/Select/Select";
+import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem";
 
 class AddOffertForm extends Component {
     constructor(props) {
@@ -68,6 +72,22 @@ class AddOffertForm extends Component {
                     onChange={this.handleChange}
                 />
 
+                <FormControl>
+                    <InputLabel>Kategoria</InputLabel>
+                    <Select
+                        value={this.state.categories}
+                        onChange={this.handleChange}
+                    >
+                        {this.state.categories.map(category => (
+                            <MenuItem
+                                key={category.name}
+                                value={category.name}
+                            >
+                                {category.name}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
 
                 <div className="field">
                     <div className="control">
