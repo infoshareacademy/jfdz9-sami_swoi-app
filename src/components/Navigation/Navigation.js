@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -7,7 +7,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 
 
 const styles = {
@@ -24,22 +24,22 @@ const styles = {
 };
 
 function ButtonAppBar(props) {
-    const { classes } = props;
+    const {classes} = props;
     return (
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
                     <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
-                    <Typography variant="title" color="secondary" className={classes.grow}>
-                        <NavLink to="/">HARUJEMY.PL</NavLink>
+                    <Typography variant="title" color="inherit" className={classes.grow}>
+                        <Link to="/">HARUJEMY.PL</Link>
                     </Typography>
-                    <Button color="inherit">
-                        <NavLink to="/dashboard">DASHBOARD</NavLink>
+                    <Button component={Link} to="/register" color="inherit">
+                        Zarejestruj się
                     </Button>
-                    <Button color="inherit">
-                        <NavLink to="/login">LOGIN</NavLink>
+                    <Button component={Link} to="/login" color="inherit">
+                        Zaloguj się
                     </Button>
                 </Toolbar>
             </AppBar>
@@ -50,7 +50,6 @@ function ButtonAppBar(props) {
 ButtonAppBar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
-
 
 
 // const Navigation = () => {

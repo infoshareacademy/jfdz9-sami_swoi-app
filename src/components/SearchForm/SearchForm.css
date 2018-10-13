@@ -1,0 +1,13 @@
+.grid-item {
+    text-align: center;
+}
+
+.form-control {
+    width: 220px;
+}
+
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+}

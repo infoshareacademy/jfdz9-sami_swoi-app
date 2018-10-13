@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
 import {
@@ -8,41 +8,40 @@ import {
 } from 'react-router-dom';
 import Home from './components/Home';
 import DashBoard from './components/DashBoard/DashBoard'
-import Footer from './components/Footer/Footer'
 // import JobsOffersList from './components/JobsOffersList/JobsOffersList'
 import LogIn from './components/LogIn/LogIn'
 import Navigation from './components/Navigation/Navigation'
-import Register from './components/AddOffert/AddOffertForm'
-// import SearchForm from './SearchForm'
+import Register from './components/Register/Register'
+import SearchForm from './components/SearchForm/SearchForm'
 import SideBar from './components/SideBar/SideBar'
-import AddOffertButton from "./components/AddOffert/AddOffertCore";
+import Grid from "@material-ui/core/Grid/Grid";
+
 // import UserPanel from './UserPanel'
 
 
 class App extends Component {
-  render() {
-    return (
-        <Fragment>
+    render() {
+        return (
             <Router>
-                <div>
-                    <Navigation/>
-                    <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route path="/dashboard" component={DashBoard}/>
-                        <Route path="/sidebar" component={SideBar}/>
-                        <Route path="/footer" component={Footer}/>
-                        <Route path="/login" component={LogIn}/>
-                        <Route path="/register" component={Register}/>
-                    </Switch>
-                </div>
+                <Grid container spacing={24}>
+                    <Grid item xs={12}>
+                        <Navigation/>
+                    </Grid>
+                    <Grid item xs={9}>
+                        <Switch>
+                            <Route exact path="/" component={Home}/>
+                            <Route path="/dashboard" component={DashBoard}/>
+                            <Route path="/login" component={LogIn}/>
+                            <Route path="/searchform" component={SearchForm}/>
+                        </Switch>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <SideBar/>
+                    </Grid>
+                </Grid>
             </Router>
-            <AddOffertButton/>
-        </Fragment>
-
-
-
-    );
-  }
+        );
+    }
 }
 
 export default App;
