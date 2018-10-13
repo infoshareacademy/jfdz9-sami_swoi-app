@@ -5,6 +5,7 @@ import InputLabel from "../../../node_modules/@material-ui/core/InputLabel/Input
 import Select from "../../../node_modules/@material-ui/core/Select/Select";
 import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem";
 import moment from "moment";
+import FilledInput from "../../../node_modules/@material-ui/core/FilledInput/FilledInput";
 
 class AddOffertForm extends Component {
     constructor(props) {
@@ -73,6 +74,8 @@ class AddOffertForm extends Component {
                 <FormControl>
                     <InputLabel>Kategoria</InputLabel>
                     <Select
+                        key={this.state.categoryId}
+                        style={{width: 300}}
                         name="categoryId"
                         value={this.state.categoryId}
                         onChange={this.handleChange}
