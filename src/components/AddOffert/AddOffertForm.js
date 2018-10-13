@@ -1,10 +1,5 @@
 import React, {Component} from "react";
 import TextField from '@material-ui/core/TextField';
-import Select from "../../../node_modules/@material-ui/core/Select/Select";
-import InputLabel from "../../../node_modules/@material-ui/core/InputLabel/InputLabel";
-import FormControl from "../../../node_modules/@material-ui/core/FormControl/FormControl";
-import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem";
-
 
 class AddOffertForm extends Component {
     constructor(props) {
