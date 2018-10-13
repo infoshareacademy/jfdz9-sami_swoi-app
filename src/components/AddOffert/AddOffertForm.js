@@ -4,6 +4,7 @@ import FormControl from "../../../node_modules/@material-ui/core/FormControl/For
 import InputLabel from "../../../node_modules/@material-ui/core/InputLabel/InputLabel";
 import Select from "../../../node_modules/@material-ui/core/Select/Select";
 import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem";
+import moment from "moment";
 
 class AddOffertForm extends Component {
     constructor(props) {
@@ -11,11 +12,8 @@ class AddOffertForm extends Component {
         this.state = {
             title: "",
             description: "",
-            categories: [],
-            editor: "",
-            message: "",
-            terms: false,
-            test: ""
+            categoryId: [],
+            createdAt: moment().format('YYYY-MM-DD')
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -26,9 +24,9 @@ class AddOffertForm extends Component {
         fetch('/Data/categories.json')
             .then(response => response.json())
             .then(cat =>this.setState({
-                categories: cat
+                categoryId: cat
             }, function(){
-                console.log(this.state.categories)
+                console.log("Kategorie ze state: " , this.state.categoryId)
             }));
     }
 
@@ -75,13 +73,14 @@ class AddOffertForm extends Component {
                 <FormControl>
                     <InputLabel>Kategoria</InputLabel>
                     <Select
-                        value={this.state.categories}
+                        name="categoryId"
+                        value={this.state.categoryId}
                         onChange={this.handleChange}
                     >
-                        {this.state.categories.map(category => (
+                        {this.state.categoryId.map(category => (
                             <MenuItem
                                 key={category.name}
-                                value={category.name}
+                                value={[category.id]}
                             >
                                 {category.name}
                             </MenuItem>
