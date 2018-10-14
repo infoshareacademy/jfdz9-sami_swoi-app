@@ -52,16 +52,4 @@ ButtonAppBar.propTypes = {
 };
 
 
-// const Navigation = () => {
-//     return(
-//         <div>
-//             <NavLink to="/">HOME</NavLink>
-//             <NavLink to="/dashboard">DASHBOARD</NavLink>
-//             <NavLink to="/footer">FOOTER</NavLink>
-//             <NavLink to="/sidebar">_SIDEBAR_</NavLink>
-//
-//         </div>
-//     )
-// };
-
 export default withStyles(styles)(ButtonAppBar);
