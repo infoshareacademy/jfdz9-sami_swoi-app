@@ -6,7 +6,7 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import DashBoard from './components/DashBoard/DashBoard'
 // import JobsOffersList from './components/JobsOffersList/JobsOffersList'
 import LogIn from './components/LogIn/LogIn'
