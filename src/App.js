@@ -6,7 +6,7 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import DashBoard from './components/DashBoard/DashBoard'
 // import JobsOffersList from './components/JobsOffersList/JobsOffersList'
 import LogIn from './components/LogIn/LogIn'
@@ -30,6 +30,7 @@ class App extends Component {
                     <Grid item xs={9}>
                         <Switch>
                             <Route path="/dashboard" component={DashBoard}/>
+                            <Route path="/register" component={Register}/>
                             <Route path="/login" component={LogIn}/>
                             <Route path="/searchform" component={SearchForm}/>
                         </Switch>
