@@ -31,6 +31,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route path="/dashboard" component={DashBoard}/>
+                            <Route path="/register" component={Register}/>
                             <Route path="/login" component={LogIn}/>
                         </Switch>
                     </Grid>
@@ -38,7 +39,7 @@ class App extends Component {
                         <SideBar/>
                     </Grid>
                 </Grid>
-            < /Router>
+            </Router>
         );
     }
 }

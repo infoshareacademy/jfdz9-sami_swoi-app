@@ -47,8 +47,8 @@ class LoginForm extends Component {
                    type="password"
                />
 
-               <div className="form-group">
-                   <button className="btn btn-primary btn-lg" disabled={isLoading}>Login</button>
+               <div>
+                   <button disabled={isLoading}>Login</button>
                </div>
            </form>
         )
