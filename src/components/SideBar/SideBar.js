@@ -43,7 +43,7 @@ class Sidebar extends Component {
             <div className='ui segment pushable'>
                 <div className='pusher'>
                     <div className='ui basic segment'>
-                        <h3 className='ui header'>SideBar ;P</h3>
+                        <h3 className='ui header'>Najnowsze Oferty!</h3>
                         {
                             this.state.filteredJobOffers.map(offer=>{
                                 return(
