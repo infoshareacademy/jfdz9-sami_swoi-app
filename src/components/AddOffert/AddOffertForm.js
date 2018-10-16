@@ -15,6 +15,10 @@ class AddOffertForm extends Component {
             categoryId: [],
             createdAt: moment().format('YYYY-MM-DD'),
             locationId: [],
+            salary: {
+                max: "",
+                min: ""
+            },
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -45,6 +49,22 @@ class AddOffertForm extends Component {
         event.preventDefault();
         console.log(this.state);
     }
+
+    locationIdData = [
+        {
+            "id": 1,
+            "name": "Gdańsk"
+        },
+        {
+            "id": 2,
+            "name": "Gdynia"
+        },
+        {
+            "id": 3,
+            "name": "Wejherowo"
+        }
+    ];
+
 
     render() {
         return (
@@ -92,14 +112,43 @@ class AddOffertForm extends Component {
                     </Select>
                 </FormControl>
 
+                <FormControl>
+                    <InputLabel>Lokalizacja</InputLabel>
+                    <Select
+                        key={this.state.locationId}
+                        style={{width: 300}}
+                        name="locationId"
+                        value={this.state.locationId}
+                        onChange={this.handleChange}
+                    >
+                        {this.locationIdData.map(location => (
+                            <MenuItem
+                                key={location.name}
+                                value={[location.id]}
+                            >
+                                {location.name}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+
                 <TextField
                     required
-                    label="Lokalizacja"
+                    label="Wynagrodzenie minimalne"
                     margin="normal"
-                    multiline
-                    rowsMax="3"
-                    name="title"
-                    value={this.state.locationId}
+                    name="salary.min"
+                    type="number"
+                    value={this.state.salary.min}
+                    onChange={this.handleChange}
+                />
+
+                <TextField
+                    required
+                    label="Wynagrodzenie maksymalne"
+                    margin="normal"
+                    name="salary.max"
+                    type="number"
+                    value={this.state.salary.max}
                     onChange={this.handleChange}
                 />
 
