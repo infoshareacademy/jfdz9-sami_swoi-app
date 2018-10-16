@@ -45,7 +45,7 @@ class AddOffertCore extends React.Component {
 
         return (
             <div>
-                <Button onClick={this.handleOpen}>DODAJ OFERTĘ</Button>
+                <Button onClick={this.handleOpen} style={{backgroundColor: 'lightgrey'}}>DODAJ OFERTĘ</Button>
                 <Modal
                     aria-labelledby="simple-modal-title"
                     aria-describedby="simple-modal-description"

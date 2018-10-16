@@ -5,7 +5,6 @@ import InputLabel from "../../../node_modules/@material-ui/core/InputLabel/Input
 import Select from "../../../node_modules/@material-ui/core/Select/Select";
 import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem";
 import moment from "moment";
-import FilledInput from "../../../node_modules/@material-ui/core/FilledInput/FilledInput";
 
 class AddOffertForm extends Component {
     constructor(props) {
@@ -14,7 +13,8 @@ class AddOffertForm extends Component {
             title: "",
             description: "",
             categoryId: [],
-            createdAt: moment().format('YYYY-MM-DD')
+            createdAt: moment().format('YYYY-MM-DD'),
+            locationId: [],
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -48,7 +48,7 @@ class AddOffertForm extends Component {
 
     render() {
         return (
-            <form className="form" onSubmit={this.handleSubmit}>
+            <form className="form" onSubmit={this.handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
                 <TextField
                     required
                     label="Tytuł oferty"
@@ -58,6 +58,7 @@ class AddOffertForm extends Component {
                     name="title"
                     value={this.state.title}
                     onChange={this.handleChange}
+                    style={{alignSelf: 'center'}}
                 />
 
                 <TextField
@@ -90,6 +91,17 @@ class AddOffertForm extends Component {
                         ))}
                     </Select>
                 </FormControl>
+
+                <TextField
+                    required
+                    label="Lokalizacja"
+                    margin="normal"
+                    multiline
+                    rowsMax="3"
+                    name="title"
+                    value={this.state.locationId}
+                    onChange={this.handleChange}
+                />
 
                 <div className="field">
                     <div className="control">
