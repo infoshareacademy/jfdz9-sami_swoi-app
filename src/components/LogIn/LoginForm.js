@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import TextFieldGroup from '../common/TextFieldGroup';
-
+import validateInput from '/home/kursant/WebstormProjects/jfdz9-sami_swoi-app/src/server/shared/validations/login.js';
+import { connect } from 'react-redux';
+import { login } from '/home/kursant/WebstormProjects/jfdz9-sami_swoi-app/src/client/actions/authActions.js';
+import PropTypes from 'prop-types';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -16,44 +19,74 @@ class LoginForm extends Component {
         this.onChange = this.onChange.bind(this);
     }
 
+    isValid() {
+        const { errors, isValid } = validateInput(this.state);
+
+        if (!isValid) {
+            this.setState({ errors });
+        }
+
+        return isValid;
+    }
+
     onSubmit(e) {
         e.preventDefault();
+        if (this.isValid()) {
+            this.setState({ errors: {}, isLoading: true });
+            this.props.login(this.state).then(
+                (res) => this.context.router.push('/'),
+                (err) => this.setState({ errors: err.response.data.errors, isLoading: false })
+            );
+        }
     }
 
     onChange(e) {
-        this.setState({ [e.target.name]: e.target.value})
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     render() {
         const { errors, identifier, password, isLoading } = this.state;
 
-      return(
-           <form onSubmit={this.onSubmit}>
-               <h1>Login</h1>
-               <TextFieldGroup
-                   field="identifier"
-                   label="Username / Email"
-                   value={identifier}
-                   errors={errors.identifier}
-                   onChange={this.onChange}
-               />
+        return (
+            <form onSubmit={this.onSubmit}>
+                <h1>Login</h1>
 
-               <TextFieldGroup
-                   field="password"
-                   label="Password"
-                   value={password}
-                   errors={errors.password}
-                   onChange={this.onChange}
-                   type="password"
-               />
+                { errors.form && <div className="alert alert-danger">{errors.form}</div> }
 
-               <div>
-                   <button disabled={isLoading}>Login</button>
-               </div>
-           </form>
-        )
+                <TextFieldGroup
+                    field="identifier"
+                    label="Username / Email"
+                    value={identifier}
+                    error={errors.identifier}
+                    onChange={this.onChange}
+                />
+
+                <TextFieldGroup
+                    field="password"
+                    label="Password"
+                    value={password}
+                    error={errors.password}
+                    onChange={this.onChange}
+                    type="password"
+                />
+
+                <div className="form-group"><button className="btn btn-primary btn-lg" disabled={isLoading}>Login</button></div>
+            </form>
+        );
     }
 }
 
+LoginForm.propTypes = {
+    optionalFunc: PropTypes.func,
+    optionalObject: PropTypes.object,
+};
 
-export default LoginForm;
+LoginForm.propTypes = {
+    login: PropTypes.func.isRequired
+};
+
+LoginForm.contextTypes = {
+    router: PropTypes.object.isRequired
+};
+
+export default connect(null, { login })(LoginForm);
