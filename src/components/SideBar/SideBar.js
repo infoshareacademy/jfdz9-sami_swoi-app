@@ -11,7 +11,7 @@ class Sidebar extends Component {
 
     state = {
         filteredJobOffers: []
-    }
+    };
 
     componentDidMount() {
         fetch('/Data/job_offers.json')
@@ -45,17 +45,17 @@ class Sidebar extends Component {
                     <div className='ui basic segment'>
                         <h3 className='ui header'>Najnowsze Oferty!</h3>
                         {
-                            this.state.filteredJobOffers.map(offer=>{
-                                return(
+                            this.state.filteredJobOffers.map(offer => {
+                                return (
                                     <Card key={offer.id}>
                                         <CardContent>
                                             <Typography component="h2" variant="headline">
-                                                { offer.title}
+                                                {offer.title}
                                             </Typography>
                                         </CardContent>
 
                                         <CardMedia
-                                           src="https://www.koty.pl/wp-content/uploads/2017/11/shutterstock_684452296-e1511112417106-864x575.jpg"
+                                            src="https://www.koty.pl/wp-content/uploads/2017/11/shutterstock_684452296-e1511112417106-864x575.jpg"
                                         />
                                     </Card>
                                 )
@@ -67,7 +67,7 @@ class Sidebar extends Component {
             </div>
         )
     }
-};
+}
 
 export default Sidebar;
 
