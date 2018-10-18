@@ -36,8 +36,8 @@ class SearchForm extends Component {
     }
 
     componentDidMount() {
-        fetch('job_offers.json')
-        .then((res) => res.text())
+        fetch('/Data/job_offers.json')
+        .then((res) => res.json())
         .then(data => {
             console.log(data);
         })

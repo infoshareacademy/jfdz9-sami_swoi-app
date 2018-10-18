@@ -24,6 +24,11 @@
           "name": "Gdynia"
         }
       ]
+    },
+    "requirements": {
+      "minExp": 1,
+      "skills": ["html", "css", "js", "bootstrap"],
+      "languages": []
     }
   },
   {
@@ -47,6 +52,11 @@
           "name": "Wejherowo"
         }
       ]
+    },
+    "requirements": {
+      "minExp": 1,
+      "skills": ["kopanie", "pocenie"],
+      "languages": []
     }
   },
   {
@@ -70,6 +80,11 @@
           "name": "Gdynia"
         }
       ]
+    },
+    "requirements": {
+      "minExp": 3,
+      "skills": ["irokez", "lysina"],
+      "languages": ["polski"]
     }
   },
   {
@@ -93,6 +108,11 @@
           "name": "Gdańsk"
         }
       ]
+    },
+    "requirements": {
+      "minExp": 2,
+      "skills": ["sprzedaz"],
+      "languages": ["polski", "angielski"]
     }
   },
   {
@@ -120,6 +140,11 @@
           "name": "Gdynia"
         }
       ]
+    },
+    "requirements": {
+      "minExp": 4,
+      "skills": ["html", "css", "js", "node"],
+      "languages": ["polski", "angielski"]
     }
   },
   {
@@ -143,6 +168,11 @@
           "name": "Gdynia"
         }
       ]
+    },
+    "requirements": {
+      "minExp": 1,
+      "skills": ["klamanie", "retoryka"],
+      "languages": ["polish"]
     }
   },
   {
@@ -166,6 +196,11 @@
           "name": "Wejherowo"
         }
       ]
+    },
+    "requirements": {
+      "minExp": 10,
+      "skills": ["deepthroat", "anal"],
+      "languages": ["francuski", "hiszpanski"]
     }
   }
 ]
