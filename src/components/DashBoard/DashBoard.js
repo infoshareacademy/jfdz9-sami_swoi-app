@@ -29,7 +29,7 @@ class DashBoard extends Component {
         const pJobOffers = fetch('/Data/job_offers.json')
             .then(response => response.json());
 
-        const pCategories = fetch('/Data/categories.json')
+        const pCategories = fetch('/Data/categoryId.json')
             .then(response => response.json());
 
 
@@ -41,7 +41,7 @@ class DashBoard extends Component {
             //         }, {}
             //     );
             //
-            //     const report = categories.map(category => ({
+            //     const report = categoryId.map(category => ({
             //         points: jobOffersByCategoryId[category.id],
             //         label: category.name
             //     }));
