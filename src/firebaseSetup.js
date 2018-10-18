@@ -1,11 +1,11 @@
 import firebase from 'firebase'
 
 const config = {
-    apiKey: "AIzaSyBE1qs6UP5TV5UyfkBnyb87s1CXz0Z6OPs",
-    authDomain: "jfddl2-dc5eb.firebaseapp.com",
-    databaseURL: "https://jfddl2-dc5eb.firebaseio.com",
-    projectId: "jfddl2-dc5eb",
-    storageBucket: "jfddl2-dc5eb.appspot.com",
-    messagingSenderId: "426847661164"
+    apiKey: "AIzaSyB2EcA6uF6VIcXJ5dvwl3yXJxtAT6NKQus",
+    authDomain: "sami-swoi-app.firebaseapp.com",
+    databaseURL: "https://sami-swoi-app.firebaseio.com",
+    projectId: "sami-swoi-app",
+    storageBucket: "sami-swoi-app.appspot.com",
+    messagingSenderId: "469768113264"
 };
 firebase.initializeApp(config);

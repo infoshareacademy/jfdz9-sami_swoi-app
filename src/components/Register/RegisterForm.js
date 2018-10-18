@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Component} from 'react';
 import timezones from '/home/kursant/WebstormProjects/jfdz9-sami_swoi-app/src/data/timezones.js';
 import map from 'lodash/map';
 import classnames from 'classnames';
 import validateInput from '/home/kursant/WebstormProjects/jfdz9-sami_swoi-app/src/server/shared/validations/signup.js';
 import TextFieldGroup from '../common/TextFieldGroup';
+import { ButtonToolbar, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import firebase from 'firebase';
 
-class RegisterForm extends React.Component {
+class RegisterForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -67,7 +69,7 @@ class RegisterForm extends React.Component {
                 () => {
                     this.props.addFlashMessage({
                         type: 'success',
-                        text: 'You signed up successfully. Welcome!'
+                        text: 'Rejestracja przebiegła pomyślnie. Witamy w aplikacji HARUJEMY.PL!'
                     });
                     this.context.router.push('/');
                 },
@@ -83,11 +85,18 @@ class RegisterForm extends React.Component {
         );
         return (
             <form onSubmit={this.onSubmit}>
-                <h1>Dołącz do nas!</h1>
+                <h1>Nie masz jeszcze konta? Dołącz do nas!</h1>
+
+                <ButtonToolbar className="form-group">
+                        <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
+                            <ToggleButton value={1}>Szukam pracy</ToggleButton>
+                            <ToggleButton value={2}>Szukam pracowników</ToggleButton>
+                        </ToggleButtonGroup>
+                </ButtonToolbar>
 
                 <TextFieldGroup
                     error={errors.username}
-                    label="Username"
+                    label="Nazwa użytkownika"
                     onChange={this.onChange}
                     checkUserExists={this.checkUserExists}
                     value={this.state.username}
@@ -105,7 +114,7 @@ class RegisterForm extends React.Component {
 
                 <TextFieldGroup
                     error={errors.password}
-                    label="Password"
+                    label="Hasło"
                     onChange={this.onChange}
                     value={this.state.password}
                     field="password"
@@ -114,7 +123,7 @@ class RegisterForm extends React.Component {
 
                 <TextFieldGroup
                     error={errors.passwordConfirmation}
-                    label="Password Confirmation"
+                    label="Potwierdzenie hasła"
                     onChange={this.onChange}
                     value={this.state.passwordConfirmation}
                     field="passwordConfirmation"
@@ -122,14 +131,14 @@ class RegisterForm extends React.Component {
                 />
 
                 <div className={classnames("form-group", { 'has-error': errors.timezone })}>
-                    <label className="control-label">Timezone</label>
+                    <label className="control-label">Twoja strefa czasowa:</label>
                     <select
                         className="form-control"
                         name="timezone"
                         onChange={this.onChange}
                         value={this.state.timezone}
                     >
-                        <option value="" disabled>Choose Your Timezone</option>
+                        <option value="" disabled>Wybierz strefę czasową</option>
                         {options}
                     </select>
                     {errors.timezone && <span className="help-block">{errors.timezone}</span>}
@@ -137,7 +146,7 @@ class RegisterForm extends React.Component {
 
                 <div className="form-group">
                     <button disabled={this.state.isLoading || this.state.invalid} className="btn btn-primary btn-lg">
-                        Sign up
+                        Zarejestruj
                     </button>
                 </div>
             </form>

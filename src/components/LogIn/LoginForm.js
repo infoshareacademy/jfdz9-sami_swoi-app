@@ -49,13 +49,13 @@ class LoginForm extends Component {
 
         return (
             <form onSubmit={this.onSubmit}>
-                <h1>Login</h1>
+                <h1>Zaloguj się</h1>
 
                 { errors.form && <div className="alert alert-danger">{errors.form}</div> }
 
                 <TextFieldGroup
                     field="identifier"
-                    label="Username / Email"
+                    label="Nazwa użytkownika / Email"
                     value={identifier}
                     error={errors.identifier}
                     onChange={this.onChange}
@@ -63,14 +63,14 @@ class LoginForm extends Component {
 
                 <TextFieldGroup
                     field="password"
-                    label="Password"
+                    label="Hasło"
                     value={password}
                     error={errors.password}
                     onChange={this.onChange}
                     type="password"
                 />
 
-                <div className="form-group"><button className="btn btn-warning btn-lg" disabled={isLoading}>Login</button></div>
+                <div className="form-group"><button className="btn btn-primary btn-lg" disabled={isLoading}>Zaloguj</button></div>
             </form>
         );
     }
