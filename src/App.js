@@ -11,7 +11,7 @@ import DashBoard from './components/DashBoard/DashBoard'
 // import JobsOffersList from './components/JobsOffersList/JobsOffersList'
 import LogIn from './components/LogIn/LogIn'
 import Navigation from './components/Navigation/Navigation'
-import Register from './components/Register/Register'
+import Register from './components/Register/RegisterPage'
 import SearchForm from './components/SearchForm/SearchForm'
 import SideBar from './components/SideBar/SideBar'
 import Grid from "@material-ui/core/Grid/Grid";

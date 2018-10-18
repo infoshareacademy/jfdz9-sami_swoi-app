@@ -29,7 +29,7 @@ function ButtonAppBar(props) {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position="static" color="primary">
                 <Toolbar>
                     <Link to="/"><img src={logo} width="250" height="60" /></Link>
                     <Typography variant="title" color="inherit" className={classes.grow}>

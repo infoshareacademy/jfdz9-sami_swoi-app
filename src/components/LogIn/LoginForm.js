@@ -70,7 +70,7 @@ class LoginForm extends Component {
                     type="password"
                 />
 
-                <div className="form-group"><button className="btn btn-primary btn-lg" disabled={isLoading}>Login</button></div>
+                <div className="form-group"><button className="btn btn-warning btn-lg" disabled={isLoading}>Login</button></div>
             </form>
         );
     }
