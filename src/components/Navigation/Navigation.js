@@ -2,12 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
+import yellow from '@material-ui/core/colors/yellow';
 
 
 const styles = {
@@ -25,15 +25,14 @@ const styles = {
 
 function ButtonAppBar(props) {
     const {classes} = props;
+    const logo = 'http://i64.tinypic.com/kd07q1.png';
+
     return (
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-                        <MenuIcon/>
-                    </IconButton>
+                    <Link to="/"><img src={logo} width="250" height="60" /></Link>
                     <Typography variant="title" color="inherit" className={classes.grow}>
-                        <Link to="/">HARUJEMY.PL</Link>
                     </Typography>
                     <Button component={Link} to="/register" color="inherit">
                         Zarejestruj się
@@ -51,17 +50,5 @@ ButtonAppBar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-
-// const Navigation = () => {
-//     return(
-//         <div>
-//             <NavLink to="/">HOME</NavLink>
-//             <NavLink to="/dashboard">DASHBOARD</NavLink>
-//             <NavLink to="/footer">FOOTER</NavLink>
-//             <NavLink to="/sidebar">_SIDEBAR_</NavLink>
-//
-//         </div>
-//     )
-// };
 
 export default withStyles(styles)(ButtonAppBar);

@@ -6,7 +6,7 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import DashBoard from './components/DashBoard/DashBoard'
 // import JobsOffersList from './components/JobsOffersList/JobsOffersList'
 import LogIn from './components/LogIn/LogIn'
@@ -15,6 +15,7 @@ import Register from './components/Register/Register'
 import SearchForm from './components/SearchForm/SearchForm'
 import SideBar from './components/SideBar/SideBar'
 import Grid from "@material-ui/core/Grid/Grid";
+import AddOffertCore from "./components/AddOffert/AddOffertCore";
 
 // import UserPanel from './UserPanel'
 
@@ -29,14 +30,18 @@ class App extends Component {
                     </Grid>
                     <Grid item xs={9}>
                         <Switch>
-                            <Route exact path="/" component={Home}/>
                             <Route path="/dashboard" component={DashBoard}/>
+                            <Route path="/register" component={Register}/>
                             <Route path="/login" component={LogIn}/>
                             <Route path="/searchform" component={SearchForm}/>
                         </Switch>
                     </Grid>
+                    <Grid item xs={9}>
+                        <DashBoard/>
+                    </Grid>
                     <Grid item xs={3}>
                         <SideBar/>
+                        <AddOffertCore/>
                     </Grid>
                 </Grid>
             </Router>
