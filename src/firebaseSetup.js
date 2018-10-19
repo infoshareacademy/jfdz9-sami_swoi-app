@@ -1,11 +1,13 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
 
 const config = {
-    apiKey: "AIzaSyB2EcA6uF6VIcXJ5dvwl3yXJxtAT6NKQus",
-    authDomain: "sami-swoi-app.firebaseapp.com",
-    databaseURL: "https://sami-swoi-app.firebaseio.com",
-    projectId: "sami-swoi-app",
-    storageBucket: "sami-swoi-app.appspot.com",
-    messagingSenderId: "469768113264"
+    apiKey: "fqpfCQNVV3UmQ7P32U3AI15Nzuk2",
+    authDomain: "samiswoi-64674.firebaseapp.com",
+    databaseURL: "https://samiswoi-64674.firebaseio.com",
+    projectId: "samiswoi-64674",
+    storageBucket: "samiswoi-64674.appspot.com",
+    messagingSenderId: "424342247841"
 };
-firebase.initializeApp(config);
+const app = firebase.initializeApp(config);
+
+export const database = app.database();

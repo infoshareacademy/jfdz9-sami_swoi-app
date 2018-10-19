@@ -1,23 +1,17 @@
 import React, {Component} from 'react';
 import './App.css';
-
 import {
     BrowserRouter as Router,
     Route,
     Switch
 } from 'react-router-dom';
-import Home from './components/Home/Home';
 import DashBoard from './components/DashBoard/DashBoard'
-// import JobsOffersList from './components/JobsOffersList/JobsOffersList'
-import LogIn from './components/LogIn/LogIn'
 import Navigation from './components/Navigation/Navigation'
+import LogIn from './components/LogIn/LogIn'
 import Register from './components/Register/RegisterPage'
 import SearchForm from './components/SearchForm/SearchForm'
 import SideBar from './components/SideBar/SideBar'
 import Grid from "@material-ui/core/Grid/Grid";
-
-// import UserPanel from './UserPanel'
-
 
 class App extends Component {
     render() {
