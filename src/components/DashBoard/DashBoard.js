@@ -29,7 +29,7 @@ class DashBoard extends Component {
         const pJobOffers = fetch('/Data/job_offers.json')
             .then(response => response.json());
 
-        const pCategories = fetch('/Data/categoryId.json')
+        const pCategories = fetch('/Data/categories.json')
             .then(response => response.json());
 
 
