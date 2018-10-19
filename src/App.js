@@ -11,6 +11,7 @@ import LogIn from './components/LogIn/LogIn'
 import Register from './components/Register/RegisterPage'
 import SearchForm from './components/SearchForm/SearchForm'
 import SideBar from './components/SideBar/SideBar'
+import Home from './components/Home/Home'
 import Grid from "@material-ui/core/Grid/Grid";
 
 class App extends Component {
@@ -23,18 +24,14 @@ class App extends Component {
                     </Grid>
                     <Grid item xs={9}>
                         <Switch>
+                            <Route exact path="/" component={Home}/>
                             <Route path="/dashboard" component={DashBoard}/>
                             <Route path="/register" component={Register}/>
                             <Route path="/login" component={LogIn}/>
                             <Route path="/searchform" component={SearchForm}/>
                         </Switch>
                     </Grid>
-                    <Grid item xs={9}>
-                        <DashBoard/>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <SideBar/>
-                    </Grid>
+
                 </Grid>
             </Router>
         );
