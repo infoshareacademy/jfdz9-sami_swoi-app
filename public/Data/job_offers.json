@@ -4,7 +4,7 @@
     "title": "Junior Front-End Developer",
     "description": "Tu jest opis stanowiska pracy.",
     "categoryId": 13,
-    "createdAt": "2021-03-07",
+    "createdAt": "2018-03-27",
     "expirationDate": "2018-03-07",
     "locationId": 1,
     "salary": {
@@ -36,7 +36,7 @@
     "title": "Kopacz rowów",
     "description": "Tu jest opis stanowiska pracy.",
     "categoryId": 5,
-    "createdAt": "2019-09-01",
+    "createdAt": "2018-03-22",
     "expirationDate": "2019-12-01",
     "locationId": 3,
     "salary": {
@@ -64,7 +64,7 @@
     "title": "Fryzjer intymny",
     "description": "Tu jest opis stanowiska pracy.",
     "categoryId": 16,
-    "createdAt": "2013-03-07",
+    "createdAt": "2018-03-21",
     "expirationDate": "2013-03-07",
     "locationId": 2,
     "salary": {
@@ -92,7 +92,7 @@
     "title": "Sprzedawca w salonie Play",
     "description": "Tu jest opis stanowiska pracy.",
     "categoryId": 22,
-    "createdAt": "2019-08-20",
+    "createdAt": "2018-03-23",
     "expirationDate": "2019-10-20",
     "locationId": 1,
     "salary": {
@@ -152,7 +152,7 @@
     "title": "Prezydent Gdyni",
     "description": "Tu jest opis stanowiska pracy.",
     "categoryId": 21,
-    "createdAt": "2019-02-17",
+    "createdAt": "2018-03-26",
     "expirationDate": "2019-03-17",
     "locationId": 1,
     "salary": {
@@ -180,7 +180,7 @@
     "title": "Ekskluzywna prostytutka",
     "description": "Tu jest opis stanowiska pracy.",
     "categoryId": 25,
-    "createdAt": "2019-01-31",
+    "createdAt": "2018-03-23",
     "expirationDate": "2019-03-12",
     "locationId": 1,
     "salary": {
