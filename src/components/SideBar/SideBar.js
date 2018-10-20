@@ -118,7 +118,7 @@ class Sidebar extends Component {
         return (
             <div style={getModalStyle()} className={classes.paper}>
                 <Typography variant="title" id="modal-title">
-                    adasdadassa
+                    Wybrałeś:
                 </Typography>
                 <SingleOffer offer={this.state.selectedJobOffer}/>
             </div>);
