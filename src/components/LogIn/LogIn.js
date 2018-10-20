@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -12,6 +13,10 @@ import LockIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
+import firebase from 'firebase'
+
+
+
 
 const styles = theme => ({
     layout: {
@@ -45,9 +50,13 @@ const styles = theme => ({
     },
 });
 
-function SignIn(props) {
-    const { classes } = props;
 
+
+
+class LogIn extends Component {
+    // const { classes } = this.props;
+
+render() {
     return (
         <React.Fragment>
             <CssBaseline />
@@ -91,10 +100,7 @@ function SignIn(props) {
             </main>
         </React.Fragment>
     );
-}
+}}
 
-SignIn.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
-export default withStyles(styles)(SignIn);
+export default withStyles(styles)(LogIn);
