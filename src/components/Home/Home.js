@@ -25,7 +25,6 @@ class Home extends Component {
             <Grid container spacing={25}>
                 <Grid item xs={9}>
                     <DashBoard/>
-                    <SingleOffer/>
                 </Grid>
                 <Grid item xs={3}>
                     <SideBar/>
