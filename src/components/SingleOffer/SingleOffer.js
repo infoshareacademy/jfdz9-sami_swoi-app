@@ -10,53 +10,54 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
 const SingleOffer = ({offer}) =>
-        (
-            <div className='ui basic segment'>
-                <Card>
-                    <CardContent>
-                        <Typography component="h2" variant="headline">
-                            Wakat: {offer.title}
-                        </Typography>
-                        <Typography component="p">
-                            Dodano: {offer.createdAt}
-                        </Typography>
+    (
+        <div className='ui basic segment'>
+            <Card>
+                <CardContent>
+                    <Typography component="h2" variant="headline">
+                        Wakat: {offer.title}
+                    </Typography>
+                    <Typography component="p">
+                        Dodano: {offer.createdAt}
+                    </Typography>
+                    <Typography component="p">
+                        Firma: {offer.company.name}
+                    </Typography>
+                    <Typography component="p">
+                        Minimalne wynagrodzenie: {offer.salaryMin}
+                    </Typography>
+                    <Typography component="p">
+                        Opis: {offer.description}
+                    </Typography>
+                    <Typography component="p">
+                        Wymagania:
 
-                        <Typography component="p">
-                           Firma: {offer.company.name}
-                        </Typography>
-
-                        <Typography component="p">
-                            Minimalne wynagrodzenie: {offer.salary.min}
-                        </Typography>
-
-                        <Typography component="p">
-                            Opis: {offer.description}
-                        </Typography>
+                    </Typography>
 
 
-                    </CardContent>
+                </CardContent>
 
-                    {/*<CardActions>*/}
-                        {/*<IconButton aria-label="Add to favorites">*/}
-                            {/*<FavoriteIcon/>*/}
-                        {/*</IconButton>*/}
-                        {/*<IconButton aria-label="Share">*/}
-                            {/*<ShareIcon/>*/}
-                        {/*</IconButton>*/}
-                        {/*<IconButton*/}
-                            {/*// className={classnames(classes.expand, {*/}
-                            {/*//     [classes.expandOpen]: this.state.expanded,*/}
-                            {/*// })}*/}
-                            {/*// onClick={this.handleExpandClick}*/}
-                            {/*// aria-expanded={this.state.expanded}*/}
-                            {/*aria-label="Show more"*/}
-                        {/*>*/}
-                            {/*<ExpandMoreIcon/>*/}
-                        {/*</IconButton>*/}
-                    {/*</CardActions>*/}
-                </Card>
-            </div>
-        );
+                <CardActions>
+                <IconButton aria-label="Add to favorites">
+                <FavoriteIcon/>
+                </IconButton>
+                <IconButton aria-label="Share">
+                <ShareIcon/>
+                </IconButton>
+                {/*<IconButton*/}
+                {/*// className={classnames(classes.expand, {*/}
+                {/*//     [classes.expandOpen]: this.state.expanded,*/}
+                {/*// })}*/}
+                {/*// onClick={this.handleExpandClick}*/}
+                {/*// aria-expanded={this.state.expanded}*/}
+                {/*aria-label="Show more"*/}
+                {/*>*/}
+                {/*<ExpandMoreIcon/>*/}
+                {/*</IconButton>*/}
+                </CardActions>
+            </Card>
+        </div>
+    );
 
 export default SingleOffer;
 
