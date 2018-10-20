@@ -8,7 +8,7 @@ import {
 import DashBoard from './components/DashBoard/DashBoard'
 import Navigation from './components/Navigation/Navigation'
 import LogIn from './components/LogIn/LogIn'
-import Register from './components/Register/RegisterPage'
+import Register from './components/Register/Register'
 import SearchForm from './components/SearchForm/SearchForm'
 import SideBar from './components/SideBar/SideBar'
 import Home from './components/Home/Home'
