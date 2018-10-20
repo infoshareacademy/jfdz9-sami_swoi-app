@@ -13,20 +13,6 @@ import SearchForm from './components/SearchForm/SearchForm'
 import Home from './components/Home/Home'
 import Grid from "@material-ui/core/Grid/Grid";
 
-import {createMuiTheme} from '@material-ui/core/styles';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-
-const theme = createMuiTheme({
-    palette: {
-        primary: {
-            main: '#0b5994',
-        },
-        secondary: {
-            main: '#1d83c6',
-        },
-    },
-});
-
 
 class App extends Component {
     render() {
