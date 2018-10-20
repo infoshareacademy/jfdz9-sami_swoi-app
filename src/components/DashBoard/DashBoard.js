@@ -41,7 +41,7 @@ class DashBoard extends Component {
             //         }, {}
             //     );
             //
-            //     const report = categories.map(category => ({
+            //     const report = categoryId.map(category => ({
             //         points: jobOffersByCategoryId[category.id],
             //         label: category.name
             //     }));
