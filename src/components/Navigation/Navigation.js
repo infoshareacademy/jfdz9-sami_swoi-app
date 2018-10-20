@@ -34,6 +34,9 @@ function ButtonAppBar(props) {
                     <Link to="/"><img src={logo} width="250" height="60" /></Link>
                     <Typography variant="title" color="inherit" className={classes.grow}>
                     </Typography>
+                    <Button component={Link} to="/list" color="inherit">
+                        Lupa
+                    </Button>
                     <Button component={Link} to="/register" color="inherit">
                         Zarejestruj się
                     </Button>

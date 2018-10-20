@@ -47,7 +47,10 @@ class SearchForm extends Component {
         this.setState({languages: e.target.value})
     }
 
-    handleSubmit = e => {}
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.onSubmit(this.state)
+    }
 
     render() {
         const {classes, theme} = this.props;
@@ -101,7 +104,7 @@ class SearchForm extends Component {
                 </Grid>
                 <Grid container spacing={24}>
                     <Grid className="grid-item" item xs>
-                        <Button variant="outlined">
+                        <Button variant="outlined" type={'submit'}>
                             Submit
                         </Button>
                     </Grid>
