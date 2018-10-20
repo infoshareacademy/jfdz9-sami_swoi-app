@@ -5,6 +5,7 @@ import InputLabel from "../../../node_modules/@material-ui/core/InputLabel/Input
 import Select from "../../../node_modules/@material-ui/core/Select/Select";
 import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem";
 import moment from "moment";
+import Typography from "@material-ui/core/es/Typography/Typography";
 
 class AddOffertForm extends Component {
     constructor(props) {
@@ -14,14 +15,20 @@ class AddOffertForm extends Component {
             description: "",
             categoryId: "",
             createdAt: moment().format('YYYY-MM-DD'),
+            expirationDate: moment().add(1, 'M').format('YYYY-MM-DD'),
             locationId: [],
             salaryMax: "",
             salaryMin: "",
-            categories: []
+            categories: [],
+            requirements: {
+                minExp: "",
+                skills: [],
+                languages: []
+            }
         };
 
         this.handleChange = this.handleChange.bind(this);
-        // this.handleChange2 = this.handleChange2.bind(this);
+        this.handleChange2 = this.handleChange2.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -36,6 +43,16 @@ class AddOffertForm extends Component {
     }
 
         handleChange(event) {
+        const target = event.target;
+        const value = target.type === "checkbox" ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleChange2(event) {
         const target = event.target;
         const value = target.type === "checkbox" ? target.checked : target.value;
         const name = target.name;
@@ -162,6 +179,22 @@ class AddOffertForm extends Component {
                     type="number"
                     value={this.state.salaryMax}
                     onChange={this.handleChange}
+                />
+
+                <Typography variant="subheading" align="center">
+                    <br />
+                    Minimalne wymagania:
+                </Typography>
+
+                <TextField
+                    required
+                    label="Doświadczenie (lata)"
+                    margin="normal"
+                    name="minExp"
+                    type="number"
+                    value={this.state.minExp}
+                    onChange={this.handleChange2}
+                    style={{alignSelf: 'center'}}
                 />
 
                 <div className="field">
