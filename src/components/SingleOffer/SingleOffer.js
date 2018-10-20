@@ -30,7 +30,7 @@ const SingleOffer = ({offer}) =>
                         Opis: {offer.description}
                     </Typography>
                     <Typography component="p">
-                        Wymagania:
+                        Wymagania:{offer.requirements.skills}
 
                     </Typography>
 
@@ -44,16 +44,6 @@ const SingleOffer = ({offer}) =>
                 <IconButton aria-label="Share">
                 <ShareIcon/>
                 </IconButton>
-                {/*<IconButton*/}
-                {/*// className={classnames(classes.expand, {*/}
-                {/*//     [classes.expandOpen]: this.state.expanded,*/}
-                {/*// })}*/}
-                {/*// onClick={this.handleExpandClick}*/}
-                {/*// aria-expanded={this.state.expanded}*/}
-                {/*aria-label="Show more"*/}
-                {/*>*/}
-                {/*<ExpandMoreIcon/>*/}
-                {/*</IconButton>*/}
                 </CardActions>
             </Card>
         </div>
