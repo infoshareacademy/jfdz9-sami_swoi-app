@@ -6,6 +6,9 @@ import Select from "../../../node_modules/@material-ui/core/Select/Select";
 import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem";
 import moment from "moment";
 import Typography from "@material-ui/core/es/Typography/Typography";
+import firebase from 'firebase';
+
+const BASE_API_URL = 'https://ss-jobs-search.firebaseio.com';
 
 class AddOffertForm extends Component {
     constructor(props) {
@@ -31,6 +34,10 @@ class AddOffertForm extends Component {
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    onError = (error) => {
+        console.error('### failed: ', error);
+    };
 
     componentDidMount() {
         fetch('/Data/categories.json')
@@ -67,7 +74,13 @@ class AddOffertForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        // firebase.database().ref('/job_offers').set(this.state) /// Kamila rozwiązanie 
         console.log(this.state);
+        fetch(`${BASE_API_URL}`, {
+            method: 'PUT',
+            body: this.state
+        })
+            .catch((error) => this.onError(error));
     }
 
     locationIdData = [
