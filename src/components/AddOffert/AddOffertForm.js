@@ -22,8 +22,8 @@ class AddOffertForm extends Component {
             categories: [],
             requirements: {
                 minExp: "",
-                skills: [],
-                languages: []
+                skills: "",
+                languages: ""
             }
         };
 
@@ -53,11 +53,14 @@ class AddOffertForm extends Component {
     }
 
     handleChange2(event) {
+        const target = event.target;
+        const value = target.type === "checkbox" ? target.checked : target.value;
+        const name = target.name;
         this.setState(state => ({
             ...state,
             requirements: {
                 ...state.requirements,
-                minExp: ''
+                [name]: value
             }
         }))
     }
@@ -124,6 +127,7 @@ class AddOffertForm extends Component {
                 <FormControl>
                     <InputLabel>Kategoria</InputLabel>
                     <Select
+                        required
                         key={this.state.categoryId}
                         style={{width: 300}}
                         name="categoryId"
@@ -144,6 +148,7 @@ class AddOffertForm extends Component {
                 <FormControl>
                     <InputLabel>Lokalizacja</InputLabel>
                     <Select
+                        required
                         key={this.state.locationId}
                         style={{width: 300}}
                         name="locationId"
@@ -193,6 +198,30 @@ class AddOffertForm extends Component {
                     name="minExp"
                     type="number"
                     value={this.state.minExp}
+                    onChange={this.handleChange2}
+                    style={{alignSelf: 'center'}}
+                />
+
+                <TextField
+                    required
+                    label="Umiejętności"
+                    margin="normal"
+                    multiline
+                    rowsMax="3"
+                    name="skills"
+                    value={this.state.skills}
+                    onChange={this.handleChange2}
+                    style={{alignSelf: 'center'}}
+                />
+
+                <TextField
+                    required
+                    label="Języki"
+                    margin="normal"
+                    multiline
+                    rowsMax="3"
+                    name="languages"
+                    value={this.state.skills}
                     onChange={this.handleChange2}
                     style={{alignSelf: 'center'}}
                 />
