@@ -12,16 +12,16 @@ class AddOffertForm extends Component {
         this.state = {
             title: "",
             description: "",
-            categoryId: [],
+            categoryId: "",
             createdAt: moment().format('YYYY-MM-DD'),
             locationId: [],
-            salary: {
-                max: "",
-                min: ""
-            },
+            salaryMax: "",
+            salaryMin: "",
+            categories: []
         };
 
         this.handleChange = this.handleChange.bind(this);
+        // this.handleChange2 = this.handleChange2.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -29,9 +29,9 @@ class AddOffertForm extends Component {
         fetch('/Data/categories.json')
             .then(response => response.json())
             .then(cat =>this.setState({
-                categoryId: cat
+                categories: cat
             }, function(){
-                console.log("Kategorie ze state: " , this.state.categoryId)
+                console.log("Kategorie ze state: " , this.state.categories)
             }));
     }
 
@@ -62,7 +62,19 @@ class AddOffertForm extends Component {
         {
             "id": 3,
             "name": "Wejherowo"
-        }
+        },
+        {
+            "id": 4,
+            "name": "Sopot"
+        },
+        {
+            "id": 5,
+            "name": "Reda"
+        },
+        {
+            "id": 6,
+            "name": "Rumia"
+        },
     ];
 
 
@@ -101,10 +113,10 @@ class AddOffertForm extends Component {
                         value={this.state.categoryId}
                         onChange={this.handleChange}
                     >
-                        {this.state.categoryId.map(category => (
+                        {this.state.categories.map(category => (
                             <MenuItem
                                 key={category.name}
-                                value={[category.id]}
+                                value={category.id}
                             >
                                 {category.name}
                             </MenuItem>
@@ -124,7 +136,7 @@ class AddOffertForm extends Component {
                         {this.locationIdData.map(location => (
                             <MenuItem
                                 key={location.name}
-                                value={[location.id]}
+                                value={location.id}
                             >
                                 {location.name}
                             </MenuItem>
@@ -136,9 +148,9 @@ class AddOffertForm extends Component {
                     required
                     label="Wynagrodzenie minimalne"
                     margin="normal"
-                    name="salary.min"
+                    name="salaryMin"
                     type="number"
-                    value={this.state.salary.min}
+                    value={this.state.salaryMin}
                     onChange={this.handleChange}
                 />
 
@@ -146,9 +158,9 @@ class AddOffertForm extends Component {
                     required
                     label="Wynagrodzenie maksymalne"
                     margin="normal"
-                    name="salary.max"
+                    name="salaryMax"
                     type="number"
-                    value={this.state.salary.max}
+                    value={this.state.salaryMax}
                     onChange={this.handleChange}
                 />
 
