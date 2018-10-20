@@ -8,10 +8,26 @@ import {
 import DashBoard from './components/DashBoard/DashBoard'
 import Navigation from './components/Navigation/Navigation'
 import LogIn from './components/LogIn/LogIn'
-import Register from './components/Register/RegisterPage'
+import Register from './components/Register/Register'
+import SearchForm from './components/SearchForm/SearchForm'
 import Home from './components/Home/Home'
 import Grid from "@material-ui/core/Grid/Grid";
 import JobsOffersList from "./components/JobsOffersList/JobsOffersList";
+
+import {createMuiTheme} from '@material-ui/core/styles';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: '#0b5994',
+        },
+        secondary: {
+            main: '#1d83c6',
+        },
+    },
+});
+
 
 class App extends Component {
     render() {
@@ -21,7 +37,7 @@ class App extends Component {
                     <Grid item xs={12}>
                         <Navigation/>
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={12}>
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route path="/dashboard" component={DashBoard}/>

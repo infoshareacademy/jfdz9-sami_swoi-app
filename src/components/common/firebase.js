@@ -1,13 +1,14 @@
 import firebase from 'firebase';
 
 const config = {
-    apiKey: "AIzaSyAWWLpl4uGQFKBhQ7DVkBiFGgqmM0tScwE",
-    authDomain: "samiswoi-64674.firebaseapp.com",
-    databaseURL: "https://samiswoi-64674.firebaseio.com",
-    projectId: "samiswoi-64674",
-    storageBucket: "samiswoi-64674.appspot.com",
-    messagingSenderId: "424342247841"
+    apiKey: "AIzaSyDyrHf6GWTbRqPUZCN3Lh0NS6eClrwUVk8",
+    authDomain: "ss-jobs-search.firebaseapp.com",
+    databaseURL: "https://ss-jobs-search.firebaseio.com",
+    projectId: "ss-jobs-search",
+    storageBucket: "ss-jobs-search.appspot.com",
+    messagingSenderId: "780388662203"
 };
-const app = firebase.initializeApp(config);
+firebase.initializeApp(config);
+
 
 export const database = app.database();

@@ -5,15 +5,24 @@ import Grid from "@material-ui/core/Grid/Grid";
 import AddOffertCore from "../AddOffert/AddOffertCore";
 import SingleOffer from "../SingleOffer/SingleOffer";
 
+import withStyles from '@material-ui/core/styles/withStyles';
+import { createMuiTheme } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+
+const theme = createMuiTheme({
+    palette: {
+        primary: blue,
+
+    },
+});
+
+
 class Home extends Component {
     render() {
         return (
 
-            <Grid container spacing={24}>
 
-                <Grid item xs={9}>
-
-                </Grid>
+            <Grid container spacing={25}>
                 <Grid item xs={9}>
                     <DashBoard/>
                     <SingleOffer/>
@@ -23,7 +32,6 @@ class Home extends Component {
                     <AddOffertCore/>
                 </Grid>
             </Grid>
-
         );
     }
 }

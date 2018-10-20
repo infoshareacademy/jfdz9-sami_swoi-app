@@ -50,7 +50,7 @@ class SingleOffer extends Component {
                                     </Typography>
 
                                     <Typography component="p">
-                                        Minimalne wynagrodzenie: {offer.salary.min}
+                                        Minimalne wynagrodzenie: {offer.salaryMin}
                                     </Typography>
 
                                     <Typography component="p">

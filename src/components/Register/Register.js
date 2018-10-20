@@ -45,7 +45,7 @@ const styles = theme => ({
     },
 });
 
-function SignIn(props) {
+function Register(props) {
     const { classes } = props;
 
     return (
@@ -57,7 +57,7 @@ function SignIn(props) {
                         <LockIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Logowanie
+                        Rejestracja
                     </Typography>
                     <form className={classes.form}>
                         <FormControl margin="normal" required fullWidth>
@@ -73,18 +73,14 @@ function SignIn(props) {
                                 autoComplete="current-password"
                             />
                         </FormControl>
-                        <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
-                            label="Zapamiętaj mnie"
-                        />
                         <Button
                             type="submit"
                             fullWidth
                             variant="contained"
-                            color="secondary"
+                            color="primary"
                             className={classes.submit}
                         >
-                            Zaloguj się
+                            Zarejestruj się
                         </Button>
                     </form>
                 </Paper>
@@ -93,8 +89,8 @@ function SignIn(props) {
     );
 }
 
-SignIn.propTypes = {
+Register.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SignIn);
+export default withStyles(styles)(Register);
