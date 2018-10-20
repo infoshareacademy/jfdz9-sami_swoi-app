@@ -5,6 +5,18 @@ import Grid from "@material-ui/core/Grid/Grid";
 import AddOffertCore from "../AddOffert/AddOffertCore";
 import SingleOffer from "../SingleOffer/SingleOffer";
 
+import withStyles from '@material-ui/core/styles/withStyles';
+import { createMuiTheme } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+
+const theme = createMuiTheme({
+    palette: {
+        primary: blue,
+
+    },
+});
+
+
 class Home extends Component {
     render() {
         return (
