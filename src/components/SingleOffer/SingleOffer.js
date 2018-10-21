@@ -21,7 +21,7 @@ const SingleOffer = ({offer}) =>
                         Dodano: {offer.createdAt}
                     </Typography>
                     <Typography component="p">
-                        Firma: {offer.company.name}
+                        Firma: {offer.company ? offer.company.name : 'Ukryta Rekrutacja'}
                     </Typography>
                     <Typography component="p">
                         Minimalne wynagrodzenie: {offer.salaryMin}
