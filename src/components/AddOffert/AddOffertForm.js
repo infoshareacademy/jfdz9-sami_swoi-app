@@ -5,8 +5,7 @@ import InputLabel from "../../../node_modules/@material-ui/core/InputLabel/Input
 import Select from "../../../node_modules/@material-ui/core/Select/Select";
 import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem";
 import moment from "moment";
-import Typography from "@material-ui/core/es/Typography/Typography";
-import firebase from 'firebase';
+import Typography from "@material-ui/core/Typography/Typography";
 import {database} from '../common/firebase';
 
 class AddOffertForm extends Component {
