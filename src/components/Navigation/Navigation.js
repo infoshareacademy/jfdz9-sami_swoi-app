@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
+import SearchIcon from '@material-ui/icons/Search';
+
 
 const styles = {
     root: {
@@ -31,6 +33,9 @@ function ButtonAppBar(props) {
                     <Link to="/"><img src={logo} width="250" height="60" /></Link>
                     <Typography variant="title" color="inherit" className={classes.grow}>
                     </Typography>
+                    <Button component={Link} to="/list" color="inherit">
+                    <SearchIcon />
+                    </Button>
                     <Button component={Link} to="/register" color="inherit">
                         Zarejestruj się
                     </Button>

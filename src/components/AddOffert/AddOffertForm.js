@@ -8,6 +8,33 @@ import moment from "moment";
 import Typography from "@material-ui/core/Typography/Typography";
 import {database} from '../common/firebase';
 
+export const locationIdData = [
+    {
+        "id": 1,
+        "name": "Gdańsk"
+    },
+    {
+        "id": 2,
+        "name": "Gdynia"
+    },
+    {
+        "id": 3,
+        "name": "Wejherowo"
+    },
+    {
+        "id": 4,
+        "name": "Sopot"
+    },
+    {
+        "id": 5,
+        "name": "Reda"
+    },
+    {
+        "id": 6,
+        "name": "Rumia"
+    },
+];
+
 class AddOffertForm extends Component {
 
     listenersRefs = [];
@@ -76,33 +103,6 @@ class AddOffertForm extends Component {
         database.ref().push(this.state)
     }
 
-    locationIdData = [
-        {
-            "id": 1,
-            "name": "Gdańsk"
-        },
-        {
-            "id": 2,
-            "name": "Gdynia"
-        },
-        {
-            "id": 3,
-            "name": "Wejherowo"
-        },
-        {
-            "id": 4,
-            "name": "Sopot"
-        },
-        {
-            "id": 5,
-            "name": "Reda"
-        },
-        {
-            "id": 6,
-            "name": "Rumia"
-        },
-    ];
-
 
     render() {
         return (
@@ -161,7 +161,7 @@ class AddOffertForm extends Component {
                         value={this.state.locationId}
                         onChange={this.handleChange}
                     >
-                        {this.locationIdData.map(location => (
+                        {locationIdData.map(location => (
                             <MenuItem
                                 key={location.name}
                                 value={location.id}

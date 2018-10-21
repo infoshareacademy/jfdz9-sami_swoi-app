@@ -12,11 +12,12 @@ import Register from './components/Register/Register'
 import SearchForm from './components/SearchForm/SearchForm'
 import Home from './components/Home/Home'
 import Grid from "@material-ui/core/Grid/Grid";
+import JobsOffersList from "./components/JobsOffersList/JobsOffersList";
 import Footer from './components/Footer/Footer'
 import {createMuiTheme} from '@material-ui/core/styles';
 import PrivateRoute from './PrivateRoute';
 import { app } from './components/common/firebase';
-import CircularProgress from "@material-ui/core/es/CircularProgress/CircularProgress";
+import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
 
 
 const theme = createMuiTheme({
@@ -84,9 +85,9 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route path="/dashboard" component={DashBoard}/>
-                            <Route exact path="/register" component={Register}/>
-                            <Route exact path="/login" component={LogIn}/>
-                            <Route path="/searchform" component={SearchForm}/>
+                            <Route path="/register" component={Register}/>
+                            <Route path="/login" component={LogIn}/>
+                            <Route path="/list" component={JobsOffersList}/>
                         </Switch>
                     </Grid>
                     <Footer/>

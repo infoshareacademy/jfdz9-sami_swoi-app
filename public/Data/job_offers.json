@@ -78,7 +78,7 @@
     "requirements": {
       "minExp": 3,
       "skills": [" irokez", " lysina"],
-      "languages": ["polski"]
+      "languages": ["Polski"]
     }
   },
   {
@@ -104,7 +104,7 @@
     "requirements": {
       "minExp": 2,
       "skills": [" sprzedaz"],
-      "languages": ["polski", "angielski"]
+      "languages": ["Polski", "Angielski"]
     }
   },
   {
@@ -134,7 +134,7 @@
     "requirements": {
       "minExp": 4,
       "skills": [" html", " css", " js", " node"],
-      "languages": ["polski", "angielski"]
+      "languages": ["Polski", "Angielski"]
     }
   },
   {
@@ -160,7 +160,7 @@
     "requirements": {
       "minExp": 1,
       "skills": [" klamanie", " retoryka"],
-      "languages": ["polish"]
+      "languages": ["Polski"]
     }
   },
   {
