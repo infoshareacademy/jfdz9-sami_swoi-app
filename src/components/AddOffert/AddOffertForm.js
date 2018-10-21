@@ -7,7 +7,7 @@ import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem"
 import moment from "moment";
 import Typography from "@material-ui/core/es/Typography/Typography";
 import firebase from 'firebase';
-import { database } from '../common/firebase';
+import {database} from '../common/firebase';
 
 class AddOffertForm extends Component {
 
@@ -40,34 +40,16 @@ class AddOffertForm extends Component {
 
 
     componentDidMount() {
-        const ref = database.ref('ss-jobs-search');
-
-        ref.on('value', (snapshot) => {
-            const value = snapshot.val();
-
-            const list = (value && Object.entries(value)
-                .map(item => {
-                    return {
-                        id: item[0],
-                        value: item[1]
-                    };
-                })) || [];
-
-            this.setState({jobs: list});
-        });
-
-        this.listenersRefs.push(ref);
-
         fetch('/Data/categories.json')
             .then(response => response.json())
-            .then(cat =>this.setState({
+            .then(cat => this.setState({
                 categories: cat
-            }, function(){
-                console.log("Kategorie ze state: " , this.state.categories)
+            }, function () {
+                console.log("Kategorie ze state: ", this.state.categories)
             }));
     }
 
-        handleChange(event) {
+    handleChange(event) {
         const target = event.target;
         const value = target.type === "checkbox" ? target.checked : target.value;
         const name = target.name;
@@ -94,8 +76,8 @@ class AddOffertForm extends Component {
         event.preventDefault();
         // firebase.database().ref('/').push(this.state);
         console.log(this.state);
-        database.ref('ss-jobs-search')
-            .push(this.state)
+        database.ref()
+            .push(this.state.jobs)
     }
 
     locationIdData = [
@@ -215,7 +197,7 @@ class AddOffertForm extends Component {
                 />
 
                 <Typography variant="subheading" align="center">
-                    <br />
+                    <br/>
                     Minimalne wymagania:
                 </Typography>
 
