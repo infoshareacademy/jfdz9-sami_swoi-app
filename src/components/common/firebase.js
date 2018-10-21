@@ -8,7 +8,6 @@ const config = {
     storageBucket: "ss-jobs-search.appspot.com",
     messagingSenderId: "780388662203"
 };
-const app = firebase.initializeApp(config);
 
-
+export const app = firebase.initializeApp(config);
 export const database = app.database();
