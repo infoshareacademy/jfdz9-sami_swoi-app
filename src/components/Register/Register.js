@@ -22,7 +22,8 @@ function setErrorMsg(error) {
 const styles = theme => ({
     layout: {
         width: 'auto',
-        display: 'block', // Fix IE 11 issue.
+        display: 'flex', // Fix IE 11 issue.
+        justifyContent: 'center',
         marginLeft: theme.spacing.unit * 3,
         marginRight: theme.spacing.unit * 3,
         [
@@ -44,10 +45,13 @@ const styles = theme => ({
     },
     avatar: {
         margin: theme.spacing.unit,
-        backgroundColor: theme.palette.secondary.main
+        backgroundColor: theme.palette.secondary.main,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems:'center'
     },
     form: {
-        width: '100%', // Fix IE 11 issue.
+        width: '70%', // Fix IE 11 issue.
         marginTop: theme.spacing.unit
     },
     submit: {
@@ -60,44 +64,44 @@ class Register extends Component {
         email: "",
         password: "",
         redirect: false
-    }
+    };
 
 
   setRedirect = () => {
     this.setState({
       redirect: true
     })
-  }
+  };
   renderRedirect = () => {
     if (this.state.redirect) {
       return <Redirect to='../SearchForm/SearchForm' />
     }
-  }
+  };
 
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
-    }
+    };
 
     handleSubmit = (e) => {
         e.preventDefault();
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(
             this.renderRedirect()
         )
-    }
+    };
     render() {
         const classes = this.props;
 
         return (
             <React.Fragment>
                 <CssBaseline/>
-                <main className={classes.layout}>
+                <main className={classes.layout} style={{width: '50%', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
                     <Paper className={classes.paper}>
-                        <Avatar className={classes.avatar}>
+                        <Avatar className={classes.avatar} style={{display: 'flex', justifyContent: 'center'}}>
                             <LockIcon/>
                         </Avatar>
-                        <Typography component="h1" variant="h5">
+                        <Typography component="h1" variant="h5" style={{justifyContent: 'center'}}>
                             Rejestracja
                         </Typography>
                         <form className={classes.form} onSubmit={this.handleSubmit}>

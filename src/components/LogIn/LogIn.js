@@ -78,9 +78,9 @@ class LogIn extends Component {
     return (
         <React.Fragment>
             <CssBaseline/>
-            <main className={classes.layout}>
+            <main className={classes.layout} style={{width: '50%', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
                 <Paper className={classes.paper}>
-                    <Avatar className={classes.avatar}>
+                    <Avatar style={{justifyContent: 'center'}}>
                         <LockIcon/>
                     </Avatar>
                     <Typography component="h1" variant="h5">
