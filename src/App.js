@@ -12,6 +12,7 @@ import Register from './components/Register/Register'
 import SearchForm from './components/SearchForm/SearchForm'
 import Home from './components/Home/Home'
 import Grid from "@material-ui/core/Grid/Grid";
+import Footer from './components/Footer/Footer'
 import {createMuiTheme} from '@material-ui/core/styles';
 import PrivateRoute from './PrivateRoute';
 import { app } from './components/common/firebase';
@@ -26,6 +27,9 @@ const theme = createMuiTheme({
         secondary: {
             main: '#1d83c6',
         },
+        white: {
+            main: '#ffffff',
+        }
     },
 });
 
@@ -85,7 +89,7 @@ class App extends Component {
                             <Route path="/searchform" component={SearchForm}/>
                         </Switch>
                     </Grid>
-
+                    <Footer/>
                 </Grid>
                 </div>
             </Router>
