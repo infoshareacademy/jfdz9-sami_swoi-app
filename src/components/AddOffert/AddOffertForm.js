@@ -5,9 +5,40 @@ import InputLabel from "../../../node_modules/@material-ui/core/InputLabel/Input
 import Select from "../../../node_modules/@material-ui/core/Select/Select";
 import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem";
 import moment from "moment";
-import Typography from "@material-ui/core/es/Typography/Typography";
+import Typography from "@material-ui/core/Typography/Typography";
+import {database} from '../common/firebase';
+
+export const locationIdData = [
+    {
+        "id": 1,
+        "name": "Gdańsk"
+    },
+    {
+        "id": 2,
+        "name": "Gdynia"
+    },
+    {
+        "id": 3,
+        "name": "Wejherowo"
+    },
+    {
+        "id": 4,
+        "name": "Sopot"
+    },
+    {
+        "id": 5,
+        "name": "Reda"
+    },
+    {
+        "id": 6,
+        "name": "Rumia"
+    },
+];
 
 class AddOffertForm extends Component {
+
+    listenersRefs = [];
+
     constructor(props) {
         super(props);
         this.state = {
@@ -32,17 +63,18 @@ class AddOffertForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+
     componentDidMount() {
         fetch('/Data/categories.json')
             .then(response => response.json())
-            .then(cat =>this.setState({
+            .then(cat => this.setState({
                 categories: cat
-            }, function(){
-                console.log("Kategorie ze state: " , this.state.categories)
+            }, function () {
+                console.log("Kategorie ze state: ", this.state.categories)
             }));
     }
 
-        handleChange(event) {
+    handleChange(event) {
         const target = event.target;
         const value = target.type === "checkbox" ? target.checked : target.value;
         const name = target.name;
@@ -68,34 +100,8 @@ class AddOffertForm extends Component {
     handleSubmit(event) {
         event.preventDefault();
         console.log(this.state);
+        database.ref().push(this.state)
     }
-
-    locationIdData = [
-        {
-            "id": 1,
-            "name": "Gdańsk"
-        },
-        {
-            "id": 2,
-            "name": "Gdynia"
-        },
-        {
-            "id": 3,
-            "name": "Wejherowo"
-        },
-        {
-            "id": 4,
-            "name": "Sopot"
-        },
-        {
-            "id": 5,
-            "name": "Reda"
-        },
-        {
-            "id": 6,
-            "name": "Rumia"
-        },
-    ];
 
 
     render() {
@@ -155,7 +161,7 @@ class AddOffertForm extends Component {
                         value={this.state.locationId}
                         onChange={this.handleChange}
                     >
-                        {this.locationIdData.map(location => (
+                        {locationIdData.map(location => (
                             <MenuItem
                                 key={location.name}
                                 value={location.id}
@@ -187,7 +193,7 @@ class AddOffertForm extends Component {
                 />
 
                 <Typography variant="subheading" align="center">
-                    <br />
+                    <br/>
                     Minimalne wymagania:
                 </Typography>
 

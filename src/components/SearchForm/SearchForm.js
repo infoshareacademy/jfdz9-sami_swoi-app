@@ -34,12 +34,6 @@ class SearchForm extends Component {
         languages: []
     }
 
-    componentDidMount() {
-        fetch('/Data/job_offers.json').then((res) => res.json()).then(data => {
-            console.log(data);
-        })
-    }
-
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
@@ -48,9 +42,7 @@ class SearchForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        this
-            .props
-            .onSubmit(this.state)
+        this.props.onSubmit(this.state)
     };
 
     render() {
@@ -109,7 +101,7 @@ class SearchForm extends Component {
                 </Grid>
                 <Grid container spacing={24}>
                     <Grid className="grid-item" item xs>
-                        <Button variant="outlined" type={'submit'}>
+                        <Button color="secondary" variant="outlined" type={'submit'}>
                             Submit
                         </Button>
                     </Grid>

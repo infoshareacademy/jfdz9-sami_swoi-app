@@ -2,12 +2,26 @@ body {
     text-align: center;
 }
 
-p {
+.container {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
     width: 400px;
     font-size: 1.2rem;
     border: 1px solid black;
     margin: .2rem auto;
-    padding: .5rem;
+    padding: .8rem;
 }
 
 h2 {

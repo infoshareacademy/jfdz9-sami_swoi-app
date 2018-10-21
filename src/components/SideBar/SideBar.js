@@ -6,10 +6,10 @@ import Typography from "@material-ui/core/Typography/Typography";
 import CardContent from "@material-ui/core/CardContent/CardContent";
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
-import AddOffertForm from "../AddOffert/AddOffertForm";
 import Modal from "@material-ui/core/Modal/Modal";
 import SingleOffer from "../SingleOffer/SingleOffer";
 import {withStyles} from "@material-ui/core";
+import * as firebase from "firebase";
 
 function getModalStyle() {
     const top = 40;
@@ -39,28 +39,32 @@ class Sidebar extends Component {
         selectedJobOffer: null
     };
 
+    processData = snapshot => {
+        const data = snapshot.val();
+        const job_offers = Object.entries(data || {}).map(([id, value]) => ({ id, ...value }))
+        job_offers.sort((offer1, offer2) => {
+            const momentCond1 = moment(offer1.createdAt);
+            const momentCond2 = moment(offer2.createdAt);
+            if (momentCond1.isAfter(momentCond2)) {
+                return -1;
+            }
+            if (momentCond1.isBefore(momentCond2)) {
+                return 1;
+            }
+            return 0;
+        });
+
+        this.setState({
+            filteredJobOffers: job_offers.slice(0, 5)
+        })
+    }
+
     componentDidMount() {
-        fetch('/Data/job_offers.json')
-            .then(response => response.json())
-            .then(job_offers => {
+        firebase.database().ref('/').on('value', this.processData )
+    }
 
-                job_offers.sort((offer1, offer2) => {
-                    const momentCond1 = moment(offer1.createdAt);
-                    const momentCond2 = moment(offer2.createdAt);
-                    if (momentCond1.isAfter(momentCond2)) {
-                        return -1;
-                    }
-                    if (momentCond1.isBefore(momentCond2)) {
-                        return 1;
-                    }
-                    return 0;
-                });
-
-                this.setState({
-                    filteredJobOffers: job_offers.slice(0, 5)
-                })
-
-            })
+    componentWillUnmount() {
+        firebase.database().ref('/').off('value', this.processData)
     }
 
 

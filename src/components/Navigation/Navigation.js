@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
+import SearchIcon from '@material-ui/icons/Search';
+
 
 const styles = {
     root: {
@@ -32,7 +34,7 @@ function ButtonAppBar(props) {
                     <Typography variant="title" color="inherit" className={classes.grow}>
                     </Typography>
                     <Button component={Link} to="/list" color="inherit">
-                        Lupa
+                    <SearchIcon />
                     </Button>
                     <Button component={Link} to="/register" color="inherit">
                         Zarejestruj się
