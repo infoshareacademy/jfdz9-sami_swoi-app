@@ -7,10 +7,12 @@ import MenuItem from "../../../node_modules/@material-ui/core/MenuItem/MenuItem"
 import moment from "moment";
 import Typography from "@material-ui/core/es/Typography/Typography";
 import firebase from 'firebase';
-
-const BASE_API_URL = 'https://ss-jobs-search.firebaseio.com';
+import { database } from '../common/firebase';
 
 class AddOffertForm extends Component {
+
+    listenersRefs = [];
+
     constructor(props) {
         super(props);
         this.state = {
@@ -27,7 +29,8 @@ class AddOffertForm extends Component {
                 minExp: "",
                 skills: "",
                 languages: ""
-            }
+            },
+            jobs: []
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -35,11 +38,26 @@ class AddOffertForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    onError = (error) => {
-        console.error('### failed: ', error);
-    };
 
     componentDidMount() {
+        const ref = database.ref('ss-jobs-search');
+
+        ref.on('value', (snapshot) => {
+            const value = snapshot.val();
+
+            const list = (value && Object.entries(value)
+                .map(item => {
+                    return {
+                        id: item[0],
+                        value: item[1]
+                    };
+                })) || [];
+
+            this.setState({jobs: list});
+        });
+
+        this.listenersRefs.push(ref);
+
         fetch('/Data/categories.json')
             .then(response => response.json())
             .then(cat =>this.setState({
@@ -74,13 +92,10 @@ class AddOffertForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        // firebase.database().ref('/job_offers').set(this.state) /// Kamila rozwiązanie 
+        // firebase.database().ref('/').push(this.state);
         console.log(this.state);
-        fetch(`${BASE_API_URL}`, {
-            method: 'PUT',
-            body: this.state
-        })
-            .catch((error) => this.onError(error));
+        database.ref('ss-jobs-search')
+            .push(this.state)
     }
 
     locationIdData = [

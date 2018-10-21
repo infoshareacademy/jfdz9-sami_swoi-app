@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import firebase from 'firebase'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import reducer from './state/reducer'
-import './firebaseSetup'
+import './components/common/firebase'
 
 const store = createStore(
     reducer,
