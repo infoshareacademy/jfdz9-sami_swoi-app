@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import { firebase } from 'firebase'
+import firebase from 'firebase'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import reducer from './state/reducer'
-import './firebase'
+import './components/common/firebase'
 
 const store = createStore(
     reducer,
