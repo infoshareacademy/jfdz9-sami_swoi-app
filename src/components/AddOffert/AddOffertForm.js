@@ -29,8 +29,7 @@ class AddOffertForm extends Component {
                 minExp: "",
                 skills: "",
                 languages: ""
-            },
-            jobs: []
+            }
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -74,10 +73,8 @@ class AddOffertForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        // firebase.database().ref('/').push(this.state);
         console.log(this.state);
-        database.ref()
-            .push(this.state.jobs)
+        database.ref().push(this.state)
     }
 
     locationIdData = [
