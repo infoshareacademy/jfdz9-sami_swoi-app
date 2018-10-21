@@ -7,7 +7,7 @@ import AddOffertForm from "./AddOffertForm";
 
 
 function getModalStyle() {
-    const top = 40;
+    const top = 50;
     const left = 50;
 
     return {
