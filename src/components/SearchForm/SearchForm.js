@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import './SearchForm.css';
 import Grid from '@material-ui/core/Grid';
@@ -49,7 +48,9 @@ class SearchForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        this.props.onSubmit(this.state) 
+        this
+            .props
+            .onSubmit(this.state)
     };
 
     render() {
@@ -62,8 +63,7 @@ class SearchForm extends Component {
                             label="Zawód"
                             onChange={this.handleChange}
                             name="title"
-                            value={this.state.industry}
-                            required/>
+                            value={this.state.industry}/>
                     </Grid>
                     <Grid className="grid-item" item xs>
                         <TextField
@@ -97,10 +97,7 @@ class SearchForm extends Component {
                                 name="languages"
                                 value={this.state.languages}
                                 onChange={this.handleChange}
-                                input={< Input id = "select-multiple-chip" />}
-                                
-                 
-                            >
+                                input={< Input id = "select-multiple-chip" />}>
                                 {languages.map(lang => (
                                     <MenuItem key={lang} value={lang}>
                                         {lang}
