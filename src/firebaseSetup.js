@@ -8,5 +8,5 @@ var config = {
     storageBucket: "ss-jobs-search.appspot.com",
     messagingSenderId: "780388662203"
 };
+
 firebase.initializeApp(config);
-export const firebaseAuth = firebase.auth;

@@ -12,6 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import firebase from 'firebase';
+import '../../firebaseSetup'
 
 function setErrorMsg(error) {
     return {
@@ -57,6 +58,18 @@ class LogIn extends Component {
         password: ""
     }
 
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+
+    handleSubmit = e => {
+        e.preventDefault();
+        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+    }
+
 
 
     render() {
@@ -73,7 +86,7 @@ class LogIn extends Component {
                     <Typography component="h1" variant="h5">
                         Logowanie
                     </Typography>
-                    <form className={classes.form}>
+                    <form className={classes.form} onSubmit={this.handleSubmit}>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="email">Adres e-mail</InputLabel>
                             <Input
@@ -82,6 +95,7 @@ class LogIn extends Component {
                                 autoComplete="email"
                                 autoFocus
                                 onChange={this.handleChange}
+                                    value={this.state.email}
                             />
                         </FormControl>
                         <FormControl margin="normal" required fullWidth>
@@ -91,6 +105,8 @@ class LogIn extends Component {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
+                                onChange={this.handleChange}
+                                    value={this.state.password}
                             />
                         </FormControl>
                         <FormControlLabel
