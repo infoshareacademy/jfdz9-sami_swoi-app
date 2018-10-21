@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,10 +11,13 @@ import LockIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
-import firebase from 'firebase'
+import firebase from 'firebase';
 
-
-
+function setErrorMsg(error) {
+    return {
+        loginMessage: error
+    };
+}
 
 const styles = theme => ({
     layout: {
@@ -50,20 +51,24 @@ const styles = theme => ({
     },
 });
 
-
-
-
 class LogIn extends Component {
-    // const { classes } = this.props;
+    state = {
+        email: "",
+        password: ""
+    }
 
-render() {
+
+
+    render() {
+    const classes = this.props;
+
     return (
         <React.Fragment>
-            <CssBaseline />
+            <CssBaseline/>
             <main className={classes.layout}>
                 <Paper className={classes.paper}>
                     <Avatar className={classes.avatar}>
-                        <LockIcon />
+                        <LockIcon/>
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Logowanie
@@ -71,7 +76,13 @@ render() {
                     <form className={classes.form}>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="email">Adres e-mail</InputLabel>
-                            <Input id="email" name="email" autoComplete="email" autoFocus />
+                            <Input
+                                id="email"
+                                name="email"
+                                autoComplete="email"
+                                autoFocus
+                                onChange={this.handleChange}
+                            />
                         </FormControl>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="password">Hasło</InputLabel>
@@ -83,7 +94,7 @@ render() {
                             />
                         </FormControl>
                         <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
+                            control={<Checkbox value="remember" color="primary"/>}
                             label="Zapamiętaj mnie"
                         />
                         <Button
@@ -91,7 +102,6 @@ render() {
                             fullWidth
                             variant="contained"
                             color="secondary"
-                            className={classes.submit}
                         >
                             Zaloguj się
                         </Button>
