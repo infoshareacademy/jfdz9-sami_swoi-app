@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +11,14 @@ import LockIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
+import firebase from 'firebase';
+import '../../firebaseSetup'
+
+function setErrorMsg(error) {
+    return {
+        loginMessage: error
+    };
+}
 
 const styles = theme => ({
     layout: {
@@ -45,24 +52,51 @@ const styles = theme => ({
     },
 });
 
-function SignIn(props) {
-    const { classes } = props;
+class LogIn extends Component {
+    state = {
+        email: "",
+        password: ""
+    }
+
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+
+    handleSubmit = e => {
+        e.preventDefault();
+        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+    }
+
+
+
+    render() {
+    const classes = this.props;
 
     return (
         <React.Fragment>
-            <CssBaseline />
+            <CssBaseline/>
             <main className={classes.layout}>
                 <Paper className={classes.paper}>
                     <Avatar className={classes.avatar}>
-                        <LockIcon />
+                        <LockIcon/>
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Zaloguj
+                        Logowanie
                     </Typography>
-                    <form className={classes.form}>
+                    <form className={classes.form} onSubmit={this.handleSubmit}>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="email">Adres e-mail</InputLabel>
-                            <Input id="email" name="email" autoComplete="email" autoFocus />
+                            <Input
+                                id="email"
+                                name="email"
+                                autoComplete="email"
+                                autoFocus
+                                onChange={this.handleChange}
+                                    value={this.state.email}
+                            />
                         </FormControl>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="password">Hasło</InputLabel>
@@ -71,30 +105,28 @@ function SignIn(props) {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
+                                onChange={this.handleChange}
+                                    value={this.state.password}
                             />
                         </FormControl>
                         <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
+                            control={<Checkbox value="remember" color="primary"/>}
                             label="Zapamiętaj mnie"
                         />
                         <Button
                             type="submit"
                             fullWidth
                             variant="contained"
-                            color="primary"
-                            className={classes.submit}
+                            color="secondary"
                         >
-                            Sign in
+                            Zaloguj się
                         </Button>
                     </form>
                 </Paper>
             </main>
         </React.Fragment>
     );
-}
+}}
 
-SignIn.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
-export default withStyles(styles)(SignIn);
+export default withStyles(styles)(LogIn);
