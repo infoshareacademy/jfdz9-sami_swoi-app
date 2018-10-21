@@ -28,7 +28,7 @@ const languages = ['Polski', 'Niemiecki', 'Angielski', 'Hiszpanski', 'Francuski'
 class SearchForm extends Component {
 
     state = {
-        industry: '',
+        title: '',
         location: '',
         minExperience: null,
         skills: [],
@@ -36,21 +36,21 @@ class SearchForm extends Component {
     }
 
     componentDidMount() {
-        fetch('/Data/job_offers.json')
-        .then((res) => res.json())
-        .then(data => {
+        fetch('/Data/job_offers.json').then((res) => res.json()).then(data => {
             console.log(data);
         })
     }
 
     handleChange = e => {
-        this.setState({languages: e.target.value})
-    }
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    };
 
     handleSubmit = e => {
         e.preventDefault();
-        this.props.onSubmit(this.state)
-    }
+        this.props.onSubmit(this.state) 
+    };
 
     render() {
         const {classes, theme} = this.props;
@@ -58,26 +58,35 @@ class SearchForm extends Component {
             <form onSubmit={this.handleSubmit}>
                 <Grid container spacing={24}>
                     <Grid className="grid-item" item xs>
-                        <TextField label="Zawód" value={this.state.industry}/>
+                        <TextField
+                            label="Zawód"
+                            onChange={this.handleChange}
+                            name="title"
+                            value={this.state.industry}
+                            required/>
                     </Grid>
                     <Grid className="grid-item" item xs>
-                        <TextField label="Miasto" value={this.state.location}/>
+                        <TextField
+                            label="Miasto"
+                            onChange={this.handleChange}
+                            name="location"
+                            value={this.state.location}/>
                     </Grid>
                     <Grid className="grid-item" item xs>
-                        <TextField label="Doświadczenie" value={this.state.minExperience}/>
+                        <TextField
+                            label="Doświadczenie"
+                            onChange={this.handleChange}
+                            name="minExperience"
+                            value={this.state.minExperience}/>
                     </Grid>
                 </Grid>
                 <Grid container spacing={24}>
                     <Grid className="grid-item" item xs>
-                        <FormControl className="form-control">
-                            <InputLabel>Umiejętności</InputLabel>
-                            <Select value={this.state.skills}>
-                                <MenuItem></MenuItem>
-                                <MenuItem></MenuItem>
-                                <MenuItem></MenuItem>
-                                <MenuItem></MenuItem>
-                            </Select>
-                        </FormControl>
+                        <TextField
+                            label="Umiejetności"
+                            onChange={this.handleChange}
+                            name="skills"
+                            value={this.state.skills}/>
                     </Grid>
                     <Grid className="grid-item" item xs>
                         <FormControl className="form-control">
@@ -85,14 +94,13 @@ class SearchForm extends Component {
 
                             <Select
                                 multiple
+                                name="languages"
                                 value={this.state.languages}
                                 onChange={this.handleChange}
                                 input={< Input id = "select-multiple-chip" />}
-                                renderValue={selected => (
-                                <div className={classes.chips}>
-                                    {selected.map(value => (<Chip key={value} label={value} className={classes.chip}/>))}
-                                </div>
-                            )}>
+                                
+                 
+                            >
                                 {languages.map(lang => (
                                     <MenuItem key={lang} value={lang}>
                                         {lang}
