@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Redirect } from 'react-router-dom';
 import firebase from 'firebase';
-import '../../firebaseSetup'
+import '../common/firebase'
 
 function setErrorMsg(error) {
     return {loginMessage: error};
