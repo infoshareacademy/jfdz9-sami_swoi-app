@@ -73,7 +73,7 @@ class LogIn extends Component {
 
 
     render() {
-    const classes = this.props;
+    const classes = this.props.classes;
 
     return (
         <React.Fragment>
@@ -106,7 +106,7 @@ class LogIn extends Component {
                                 id="password"
                                 autoComplete="current-password"
                                 onChange={this.handleChange}
-                                    value={this.state.password}
+                                value={this.state.password}
                             />
                         </FormControl>
                         <FormControlLabel
