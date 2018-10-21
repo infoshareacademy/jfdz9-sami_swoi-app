@@ -73,14 +73,14 @@ class LogIn extends Component {
 
 
     render() {
-    const classes = this.props;
+    const classes = this.props.classes;
 
     return (
         <React.Fragment>
             <CssBaseline/>
-            <main className={classes.layout} style={{width: '50%', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
+            <main className={classes.layout}>
                 <Paper className={classes.paper}>
-                    <Avatar style={{justifyContent: 'center'}}>
+                    <Avatar className={classes.avatar}>
                         <LockIcon/>
                     </Avatar>
                     <Typography component="h1" variant="h5">
@@ -106,7 +106,7 @@ class LogIn extends Component {
                                 id="password"
                                 autoComplete="current-password"
                                 onChange={this.handleChange}
-                                    value={this.state.password}
+                                value={this.state.password}
                             />
                         </FormControl>
                         <FormControlLabel

@@ -60,7 +60,7 @@ class App extends Component {
         const { authenticated, loading } = this.state;
 
         if (loading) {
-            return <CircularProgress color="secondary" style={{width: 'auto', height: 'auto', display: 'block', justifyContent: 'center', flexDirection: 'column'}} />
+            return <CircularProgress color="secondary" style={{width: 'auto', height: 'auto', display: 'block', position: 'relative'}} />
         }
 
         return (
