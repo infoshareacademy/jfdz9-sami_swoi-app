@@ -6,7 +6,6 @@ import Typography from "@material-ui/core/Typography/Typography";
 import CardContent from "@material-ui/core/CardContent/CardContent";
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
-import AddOffertForm from "../AddOffert/AddOffertForm";
 import Modal from "@material-ui/core/Modal/Modal";
 import SingleOffer from "../SingleOffer/SingleOffer";
 import {withStyles} from "@material-ui/core";
